@@ -1,0 +1,32 @@
+3/15/2023:
+
+Today I learned after signing up for a remywiki account and after trying to figure out
+Pywikibot (a bot for using MediaWiki's API) that all I need from Remywiki is a simple
+API request, one that doesn't need a bot since I will not be editing the wiki, just 
+making queries (like hey does this kanji look familiar to you? 〆)
+
+Anyways, here is how you make a query about pages in remywiki
+
+https://remywiki.com/api.php?action=query&format=json&prop=&titles=[KANJI]
+
+[KANJI] at the end is replaced with whatever kanji ah titles you wanna search
+
+a json file is returned to you and in query > pages are the list (probably 1) of pageids 
+of matching pages, if it's -1 there's no matching valid title.
+
+so let's say we searched for shime, (the kanji i asked at the end of paragraph 1).
+This query returns one pageid: 31192. Dope, now what? Now, we link to a Remywiki page by
+doing the following:
+
+https://remywiki.com/?curid=31192 <--- the ID at the end here
+
+Let the redirects or whatever do their thing. It's not like you're being paid to do this.
+
+
+Update: while being super dehydrated (love being diabetic in my 20s!) I figured out
+how to use Gson locally (cause I want to get the back-end functionality done before
+I begin designing the front-end in Android Studio). Tried figuring out Maven, realized
+it's way too complicated of a tool to use right now. Learned how to include a JAR file
+in my programs.
+
+Now Gson is running! Will begin using it tomorrow.
