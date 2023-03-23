@@ -30,3 +30,37 @@ it's way too complicated of a tool to use right now. Learned how to include a JA
 in my programs.
 
 Now Gson is running! Will begin using it tomorrow.
+
+3/22/2023:
+
+Sigh...
+
+One crazy Canadian road trip, dodging high school-level third-wheels, and an impromptu 
+cardio session later...I still haven't figured out how to convert RemyWiki's produced JSON
+file into an object. This is because the JSON has nested objects (common) but also object IDs
+as object names. This is hard.
+
+On the bright side, I think I found a solution...kinda but its for C#.
+
+https://stackoverflow.com/questions/32552705/deserialize-json-object-structure-with-ids-as-keys
+
+I did learn more about JSON serialization (object -> JSON) and JSON deserialization (JSON -> Object)
+
+I also learned that no matter what, you must have a Java class designed for the JSON file either way.
+
+Thankfully, I also learned that Java classes don't always have to be super lengthy and boilerplate.
+In fact, this concept is known as Plain Old Java Object, or POJO.
+
+Options: 
+#1: Try this solution, but abstracted to use with Java
+#2: Switch project to Android Studio and run Jackson instead of Gson lol
+#3: fucc proper json processing, just search string for pageid and get that
+
+Aight... well good night. Hopefully tomorrow will be better in terms of progress. Maybe I'll ask some
+people online too.
+
+PS: Oh I looked at the TODO list and learned that I did the first step...convert the URL into a JSON file!
+Mainly by googling and copy pasting (hey i cited my sources) tho lol
+
+Also today was a good day regardless, idk why i'm so down. Now if I could only find out why my head has so
+much pressure rn....
