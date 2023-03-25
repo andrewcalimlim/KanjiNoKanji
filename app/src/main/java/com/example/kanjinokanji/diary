@@ -1,0 +1,89 @@
+3/15/2023:
+
+Today I learned after signing up for a remywiki account and after trying to figure out
+Pywikibot (a bot for using MediaWiki's API) that all I need from Remywiki is a simple
+API request, one that doesn't need a bot since I will not be editing the wiki, just
+making queries (like hey does this kanji look familiar to you? 〆)
+
+Anyways, here is how you make a query about pages in remywiki
+
+https://remywiki.com/api.php?action=query&format=json&prop=&titles=[KANJI]
+
+[KANJI] at the end is replaced with whatever kanji ah titles you wanna search
+
+a json file is returned to you and in query > pages are the list (probably 1) of pageids
+of matching pages, if it's -1 there's no matching valid title.
+
+so let's say we searched for shime, (the kanji i asked at the end of paragraph 1).
+This query returns one pageid: 31192. Dope, now what? Now, we link to a Remywiki page by
+doing the following:
+
+https://remywiki.com/?curid=31192 <--- the ID at the end here
+
+Let the redirects or whatever do their thing. It's not like you're being paid to do this.
+
+
+Update: while being super dehydrated (love being diabetic in my 20s!) I figured out
+how to use Gson locally (cause I want to get the back-end functionality done before
+I begin designing the front-end in Android Studio). Tried figuring out Maven, realized
+it's way too complicated of a tool to use right now. Learned how to include a JAR file
+in my programs.
+
+Now Gson is running! Will begin using it tomorrow.
+
+3/22/2023:
+
+Sigh...
+
+One crazy Canadian road trip, dodging high school-level third-wheels, and an impromptu
+cardio session later...I still haven't figured out how to convert RemyWiki's produced JSON
+file into an object. This is because the JSON has nested objects (common) but also object IDs
+as object names. This is hard.
+
+On the bright side, I think I found a solution...kinda but its for C#.
+
+https://stackoverflow.com/questions/32552705/deserialize-json-object-structure-with-ids-as-keys
+
+I did learn more about JSON serialization (object -> JSON) and JSON deserialization (JSON -> Object)
+
+I also learned that no matter what, you must have a Java class designed for the JSON file either way.
+
+Thankfully, I also learned that Java classes don't always have to be super lengthy and boilerplate.
+In fact, this concept is known as Plain Old Java Object, or POJO.
+
+Options:
+#1: Try this solution, but abstracted to use with Java
+#2: Switch project to Android Studio and run Jackson instead of Gson lol
+#3: fucc proper json processing, just search string for pageid and get that
+
+Aight... well good night. Hopefully tomorrow will be better in terms of progress. Maybe I'll ask some
+people online too.
+
+PS: Oh I looked at the TODO list and learned that I did the first step...convert the URL into a JSON file!
+Mainly by googling and copy pasting (hey i cited my sources) tho lol
+
+Also today was a good day regardless, idk why i'm so down. Now if I could only find out why my head has so
+much pressure rn....
+
+3/24/2023:
+
+Alright. I finally converted the json file into a remywiki page link!
+Problem is that I had to switch to Jackson to use the model tree and I am using a model tree
+object instead of actually converting the json file into a proper object equivalent. Oh, and I'm
+on Android Studio now. Cause it's too much of a pain to run a JSON handling package on Windows.
+
+Download the jar from maven, add it to PATH..., honestly Android Studio just runs it easier.
+
+As for accessing RemyWiki.. I might return to this in the future when I want to get the actual translated title of the page on
+remywiki / the proper pronounciation in the future. that's a stretch goal. Or I might try to
+convert it as an exercise in learning JSON deserialization/serialization.
+
+Again, if I was being paid I would look into this further.
+
+Or maybe I should do that tomorrow? The page just redirects my links to the page with the title
+romanized in the URL. Hmmm...
+
+Tomorrow as in Monday? lmao god
+
+I'm happy I worked on this. It makes hanging out with my friends a lot more substantive. Speaking
+of which...
