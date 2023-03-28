@@ -3,6 +3,8 @@ package com.example.kanjinokanji;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -18,8 +20,15 @@ public class SearchRemy {
 
 
     public static void searchRemy(String kanji) throws Exception{
+        System.out.println("Input: " + kanji);
+
         String api_call =
-                "https://remywiki.com/api.php?action=query&format=json&prop=&titles=" + kanji;
+                "https://remywiki.com/api.php?action=query&format=json&prop=&titles=" + kanji
+                + "&redirects";
+
+        // https://stackoverflow.com/questions/22235903/wikipedia-search-api-get-redirect-pageid
+        // oh dope you can bypass redirects and just get the pageid for the final page
+        // by adding &redirects god i love APIs
 
         URLConnection connection = new URL(api_call).openConnection();
 
@@ -37,26 +46,36 @@ public class SearchRemy {
 
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode rootNode = objectMapper.readTree(response);
-            JsonNode resultNode = rootNode.path("query").path("pages");
+            JsonNode penultimateNode = rootNode.path("query").path("pages");
+
 
             // proudly figured this out by staring at the JsonNode official documentation
             // for like 2 minutes
             // anyways let's just arbitrarily choose the first result for now
             // since its unlikely more than 1 result will ever appear
 
-            String searchResult = resultNode.fieldNames().next();
+            String someNumber = penultimateNode.fieldNames().next();
 
-            System.out.println("Input: " + kanji);
-
-            if(searchResult.equals("-1")){
+            if(someNumber.equals("-1")){
                 System.out.println("There is no song on RemyWiki with this/these kanji as" +
                         " a title.");
 
             }
+
             else{
-                String resultPage = "https://remywiki.com/?curid=" + searchResult;
+                JsonNode finalNode = penultimateNode.path(someNumber);
+
+                // https://stackoverflow.com/questions/17862418/
+                // how-to-get-a-value-from-a-json-string-using-jackson-library
+
+                String resultID = finalNode.get("pageid").asText();
+                String resultTitle = finalNode.get("title").asText();
+
+                System.out.println("This title is romanized as " + resultTitle + ".");
+                String resultPage = "https://remywiki.com/?curid=" + resultID;
                 System.out.println("RemyWiki search returns the following page:\n" +
                         resultPage);
+
             }
 
             System.out.println("===");
@@ -71,5 +90,6 @@ public class SearchRemy {
         searchRemy("〆");
         searchRemy("草");
         searchRemy("最小三倍完全数");
+        searchRemy("鬼言集");
     }
 }

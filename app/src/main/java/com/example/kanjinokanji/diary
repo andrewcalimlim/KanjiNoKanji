@@ -46,7 +46,8 @@ https://stackoverflow.com/questions/32552705/deserialize-json-object-structure-w
 
 I did learn more about JSON serialization (object -> JSON) and JSON deserialization (JSON -> Object)
 
-I also learned that no matter what, you must have a Java class designed for the JSON file either way.
+I also learned that no matter what, you must have a Java class designed for the JSON file either
+way.
 
 Thankfully, I also learned that Java classes don't always have to be super lengthy and boilerplate.
 In fact, this concept is known as Plain Old Java Object, or POJO.
@@ -56,14 +57,14 @@ Options:
 #2: Switch project to Android Studio and run Jackson instead of Gson lol
 #3: fucc proper json processing, just search string for pageid and get that
 
-Aight... well good night. Hopefully tomorrow will be better in terms of progress. Maybe I'll ask some
-people online too.
+Aight... well good night. Hopefully tomorrow will be better in terms of progress. Maybe I'll ask
+some people online too.
 
-PS: Oh I looked at the TODO list and learned that I did the first step...convert the URL into a JSON file!
-Mainly by googling and copy pasting (hey i cited my sources) tho lol
+PS: Oh I looked at the 2do list and learned that I did the first step...convert the URL into a JSON
+file! Mainly by googling and copy pasting (hey i cited my sources) tho lol
 
-Also today was a good day regardless, idk why i'm so down. Now if I could only find out why my head has so
-much pressure rn....
+Also today was a good day regardless, idk why i'm so down. Now if I could only find out why my head
+has so much pressure rn....
 
 3/24/2023:
 
@@ -74,9 +75,10 @@ on Android Studio now. Cause it's too much of a pain to run a JSON handling pack
 
 Download the jar from maven, add it to PATH..., honestly Android Studio just runs it easier.
 
-As for accessing RemyWiki.. I might return to this in the future when I want to get the actual translated title of the page on
-remywiki / the proper pronounciation in the future. that's a stretch goal. Or I might try to
-convert it as an exercise in learning JSON deserialization/serialization.
+As for accessing RemyWiki.. I might return to this in the future when I want to get the actual
+translated title of the page on remywiki / the proper pronounciation in the future.
+That's a stretch goal. Or I might try to convert it as an exercise in learning JSON
+deserialization/serialization.
 
 Again, if I was being paid I would look into this further.
 
@@ -87,3 +89,27 @@ Tomorrow as in Monday? lmao god
 
 I'm happy I worked on this. It makes hanging out with my friends a lot more substantive. Speaking
 of which...
+
+3/27/2023:
+
+Tomorrow as in Monday it was. Maybe I should work on this project on weekends actually. Idk.
+
+Anyways it turns out i can bypass the redirects by adding a field called "&redirects" in my
+initial MediaWiki API call which is sick. I still have the dynamic pageid field name so I'm
+still using the Jackson model tree parsing to navigate the JSON, but now I have the
+"final" pageid which means no redirects but also I can now get the romanized title of the page
+which would be helpful for the user to see.
+
+PITFALL OF THIS IMPLEMENTATION: if any titles with kanji in them have multiple pages (as in
+multiple songs have the same kanji title) then a mix-up can occur. Should warn the user
+that the app is made for titles mainly in kanji (maybe?) It's also unlikely that multiple
+songs would have the exact title. I hope. We'll see. I love this TaQ album but holy god it
+might be too dynamic for me to code along to it. Sync is playing rn and it sounds like I'm
+coding something that will save the world.
+
+I'm also light headed rn. Maybe going to people's houses rn isn't the move with my immune system.
+I should eat dinner.
+
+Andrew out.
+
+
