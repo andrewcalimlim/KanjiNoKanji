@@ -19,8 +19,8 @@ import java.util.Scanner;
 public class SearchRemy {
 
 
-    public static void searchRemy(String kanji) throws Exception{
-        System.out.println("Input: " + kanji);
+    public static String[] searchRemy(String kanji) throws Exception{
+        //System.out.println("Input: " + kanji);
 
         String api_call =
                 "https://remywiki.com/api.php?action=query&format=json&prop=&titles=" + kanji
@@ -57,11 +57,13 @@ public class SearchRemy {
             String someNumber = penultimateNode.fieldNames().next();
 
             if(someNumber.equals("-1")){
+                /*
                 System.out.println("There is no song on RemyWiki with this/these kanji as" +
                         " a title.");
-
+                 */
+                String[] result = {null, null};
+                return result;
             }
-
             else{
                 JsonNode finalNode = penultimateNode.path(someNumber);
 
@@ -70,15 +72,17 @@ public class SearchRemy {
 
                 String resultID = finalNode.get("pageid").asText();
                 String resultTitle = finalNode.get("title").asText();
-
-                System.out.println("This title is romanized as " + resultTitle + ".");
                 String resultPage = "https://remywiki.com/?curid=" + resultID;
+                /*
+                System.out.println("This title is romanized as " + resultTitle + ".");
                 System.out.println("RemyWiki search returns the following page:\n" +
                         resultPage);
-
+                */
+                String[] result = {resultTitle, resultPage};
+                return result;
             }
 
-            System.out.println("===");
+            //System.out.println("===");
 
         }
 
@@ -86,10 +90,25 @@ public class SearchRemy {
 
 
     public static void main(String[] args) throws Exception{
+        String[] kanji_test = {"〆", "草", "最小三倍完全数", "鬼言集" };
+        for(int i = 0; i < kanji_test.length; i++){
+            String curKanji = kanji_test[i];
+            String[] results = searchRemy(curKanji);
+            String romanized = results[0];
+            String link = results[1];
 
-        searchRemy("〆");
-        searchRemy("草");
-        searchRemy("最小三倍完全数");
-        searchRemy("鬼言集");
+            System.out.println("Input: " + curKanji);
+            if(romanized == null || link == null){
+                System.out.println("Remywiki search failed. No page with this/these kanji found.");
+            }
+            else{
+                System.out.println("Romanized Title: " + romanized);
+                System.out.println("RemyWiki link: " + link);
+            }
+
+            System.out.println("===");
+        }
+
+
     }
 }
