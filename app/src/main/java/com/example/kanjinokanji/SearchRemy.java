@@ -18,7 +18,6 @@ import java.util.Scanner;
 
 public class SearchRemy {
 
-
     public static String[] searchRemy(String kanji) throws Exception{
         //System.out.println("Input: " + kanji);
 
@@ -88,9 +87,10 @@ public class SearchRemy {
 
     }
 
-
     public static void main(String[] args) throws Exception{
-        String[] kanji_test = {"〆", "草", "最小三倍完全数", "鬼言集" };
+        // needs to process punctuation into full-width punctuation too btw
+        /*
+        String[] kanji_test = {"〆", "草", "最小三倍完全数", "鬼言集", "回レ！雪月花" };
         for(int i = 0; i < kanji_test.length; i++){
             String curKanji = kanji_test[i];
             String[] results = searchRemy(curKanji);
@@ -99,7 +99,8 @@ public class SearchRemy {
 
             System.out.println("Input: " + curKanji);
             if(romanized == null || link == null){
-                System.out.println("Remywiki search failed. No page with this/these kanji found.");
+                System.out.println("Remywiki search failed. " +
+                        "No page with this/these kanji found.");
             }
             else{
                 System.out.println("Romanized Title: " + romanized);
@@ -108,6 +109,7 @@ public class SearchRemy {
 
             System.out.println("===");
         }
+       */
 
 
     }

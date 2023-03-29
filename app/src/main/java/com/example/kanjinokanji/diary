@@ -112,4 +112,24 @@ I should eat dinner.
 
 Andrew out.
 
+3/28/2023:
+
+Sigh.
+
+I had a huge argument with my family. I'm running on 5 hrs of sleep and my mind is shot.
+I'm not sure if I can handle living here that much longer. I'm about to start signing up for
+retail work to do again part-time. I need to get out of here for my sanity. These people bring
+out the worst in me.
+
+In other news, I did some light research on OCR, optimal camera recognition, Japanese dictionaries.
+
+https://developers.google.com/ml-kit/vision/text-recognition/android
+https://developers.google.com/android/reference/com/google/mlkit/vision/text/japanese/JapaneseTextRecognizerOptions
+
+this mlkit tutorial for Android studio might have what i want. I hope.
+
+Too tired to implement it today. Still did some refactoring to make the back-end usage of RemyWiki
+finalized for usage with whatever image-to-text technology i use.
+
+Tomorrow will be better.
 
