@@ -2,6 +2,7 @@ package com.example.kanjinokanji;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.mlkit.vision.text.TextRecognizer;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -88,6 +89,7 @@ public class SearchRemy {
     }
 
     public static void main(String[] args) throws Exception{
+
         // needs to process punctuation into full-width punctuation too btw
         /*
         String[] kanji_test = {"〆", "草", "最小三倍完全数", "鬼言集", "回レ！雪月花" };

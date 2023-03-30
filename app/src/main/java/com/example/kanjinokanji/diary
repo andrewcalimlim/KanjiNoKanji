@@ -133,3 +133,12 @@ finalized for usage with whatever image-to-text technology i use.
 
 Tomorrow will be better.
 
+3/29/2023:
+
+Well today was better mentally but I spent like most of the day cooking tofu. It's hard to cook
+at home sometimes. On the bright side I'm pretty sure that using the Google ML Kit is what I need
+to use for this project. Unfortunately, I've hit a wall with the tutorial since I keep getting an
+error involving getClient in the TextRecognition library. I should try looking at the example code
+and see what differences there are in the build gradles. I wanna go to go shower first. and maybe
+go to Round 1.
+
