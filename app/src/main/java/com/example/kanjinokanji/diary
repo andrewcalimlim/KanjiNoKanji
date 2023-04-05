@@ -142,3 +142,22 @@ error involving getClient in the TextRecognition library. I should try looking a
 and see what differences there are in the build gradles. I wanna go to go shower first. and maybe
 go to Round 1.
 
+4/4/2023:
+
+Lots of progress today! Yay!!! Implemented the tutorial completely (the issue from earlier was a
+missing import statement, also I named my Java class the same name as the import statement
+(TextRecognizer) lol, took me like an hour to figure that out hahahaha... ha..
+
+anyways, I finished the tutorial and successfully got the ML kit to detect some japanese kana and
+kanji! Works best with upclose, plain score backgrounds, not menu screen bolded images...
+
+if you are Andrew and you are reading this from the future just look at your Desktop and see the ml
+kit result folders, you'll see what I mean.
+
+Anyways, my next step is to validate/handle spacing in inputs, as sometimes the kanji isn't spaced
+correctly and must be addressed as such. I think. I haven't eaten in a while..
+
+Ok what i mean is that Google ML Kit returns "真地獄超特急-HELL or HELL-" but the RemyWIki page
+is 真 地獄超特急 -HELL or HELL-. I haven't tried removing the latin words though.
+
+Aight anyways now that I realize how hungry I am Imma let u take over sir...good luck...

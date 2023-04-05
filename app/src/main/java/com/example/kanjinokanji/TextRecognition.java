@@ -7,6 +7,7 @@ import android.os.Bundle;
 import com.google.mlkit.vision.text.TextRecognizer;
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 
+
 public class TextRecognition extends AppCompatActivity {
 
     @Override
@@ -18,9 +19,8 @@ public class TextRecognition extends AppCompatActivity {
         /*
         TextRecognizer recognizer =
                 TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
-        */
 
-
+         */
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_recognition);

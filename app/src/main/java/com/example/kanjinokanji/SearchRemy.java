@@ -2,14 +2,12 @@ package com.example.kanjinokanji;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.mlkit.vision.text.TextRecognizer;
 
-import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
 import java.util.Scanner;
+
 
 // Written by Andrew Calimlim
 
