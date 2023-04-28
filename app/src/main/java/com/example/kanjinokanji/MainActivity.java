@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity { //LMAO IT WAS JUST THE NAM
             // said no programmer ever lmaooo
 
             Uri test_uri = Uri.parse("android.resource://com.example.kanjinokanji/" +
-                    R.drawable.technorch); //change this to any image you want
+                    R.drawable.prim); //change this to any image you want
 
             //import images by dragging them to the res/drawable folder
 
@@ -96,7 +96,28 @@ public class MainActivity extends AppCompatActivity { //LMAO IT WAS JUST THE NAM
                             test the spacing by checking all possible spacings? (possibly inefficient)
 
                             but yeah detection aight, GJ!
+
+                            aight refactor this to a separate function so u can test several images
+                            at a time
+
+                            and maybe show them on screen? nahhh
+
+                            another example of needing to "check" the ml-text recognizer:
+
+                            「罪過の聖堂 needs to be 罪過の聖堂
+                            表裏一旗!?怪盗いいんちょの悩みケ should be a unicode heart lol maybe just
+                            tell the user to crop any unicode hearts or ish like that idk
+
+                            or to edit the text before sending it off to search
+
+                            which might involve detecting japanese characters (kana or Han i guess)
+
+                            https://stackoverflow.com/questions/1499804/how-can-i-detect-japanese-text-in-a-java-string
+
+
                              */
+
+
 
 
                         }

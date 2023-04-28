@@ -1,5 +1,7 @@
-#3 : research android text in images  (does this work on Japanese kanji?)
-https://developers.google.com/ml-kit/vision/text-recognition/android
+#3.5 Refactor Main Activity to make debugging easier by separating the text recognition function
+into a separate test
+
+#3.75 Perform a "checker" for the text recognizer results to strip any punctuation, latin
 
 #4: implement image to text to remywiki URL in Android Studio!
 
