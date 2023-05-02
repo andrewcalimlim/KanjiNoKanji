@@ -1,5 +1,38 @@
-#3.5 Refactor Main Activity to make debugging easier by separating the text recognition function
-into a separate test
+/*
+welcome back gamer
+
+current issue:
+
+kanji is being detected on score photos
+i think
+
+but the kanji spacing needs to be exact, and possibly strip away any
+latin words
+
+test the spacing by checking all possible spacings? (possibly inefficient)
+
+but yeah detection aight, GJ!
+
+aight refactor this to a separate function so u can test several images
+at a time
+
+and maybe show them on screen? nahhh
+
+another example of needing to "check" the ml-text recognizer:
+
+「罪過の聖堂 needs to be 罪過の聖堂
+表裏一旗!?怪盗いいんちょの悩みケ should be a unicode heart lol maybe just
+tell the user to crop any unicode hearts or ish like that idk
+
+or to edit the text before sending it off to search
+
+which might involve detecting japanese characters (kana or Han i guess)
+
+https://stackoverflow.com/questions/1499804/how-can-i-detect-japanese-text-in-a-java-string
+
+
+ */
+
 
 #3.75 Perform a "checker" for the text recognizer results to strip any punctuation, latin
 
