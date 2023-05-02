@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity { //LMAO IT WAS JUST THE NAM
      * Output: "表裏一体！？怪盗いいんちょの悩み♥"
      *
      * Note: it got one wrong so consider searching for parts of each?
+     * also full width conversion of punctuation needed
      *
      * Use this
      * https://stackoverflow.com/questions/1499804/how-can-i-detect-japanese-text-in-a-java-string
