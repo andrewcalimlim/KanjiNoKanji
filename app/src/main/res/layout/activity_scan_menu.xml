@@ -7,9 +7,10 @@
     tools:context=".MainMenu">
 
     <EditText
-        android:id="@+id/main_AppTitle"
+        android:id="@+id/scan_menuTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="100dp"
         android:background="@null"
         android:ems="10"
@@ -18,59 +19,70 @@
         android:fontFamily="@font/righteous"
         android:inputType="none"
         android:minHeight="48dp"
-        android:text="KanjiNoKanji"
-        android:textAlignment="center"
+        android:text="Select an image"
+        android:textAlignment="textStart"
         android:textAllCaps="false"
-        android:textSize="48sp"
+        android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/main_scanButton"
+        android:id="@+id/scan_uploadButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="50dp"
         android:backgroundTint="#3949AB"
         android:fontFamily="@font/righteous"
-        android:text="SCAN"
+        android:text="Upload"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="16sp"
         app:iconTint="@color/material_dynamic_tertiary40"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/scan_selectFAButton"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_AppTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/scan_currentImageTitle" />
 
     <Button
-        android:id="@+id/main_settingsButton"
+        android:id="@+id/scan_selectFAButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
         android:backgroundTint="#039BE5"
         android:fontFamily="@font/righteous"
-        android:text="SETTINGS"
+        android:text="Select from Archive"
         android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_scanButton" />
-
-    <Button
-        android:id="@+id/main_creditsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:backgroundTint="#00897B"
-        android:fontFamily="@font/righteous"
-        android:text="CREDITS"
-        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/scan_uploadButton"
+        app:layout_constraintTop_toTopOf="@+id/scan_uploadButton" />
+
+    <TextView
+        android:id="@+id/scan_currentImageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="90dp"
+        android:fontFamily="@font/righteous"
+        android:text="Current Image:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_settingsButton" />
+        app:layout_constraintTop_toBottomOf="@+id/scan_menuTitle" />
+
+    <TextView
+        android:id="@+id/scan_currentImageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/righteous"
+        android:text="No image selected"
+        android:textAlignment="viewStart"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/scan_currentImageTitle"
+        app:layout_constraintStart_toEndOf="@+id/scan_currentImageTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>
