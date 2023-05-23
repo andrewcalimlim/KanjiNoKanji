@@ -26,6 +26,8 @@
             android:name=".TextRecognition"
             android:exported="false" />
 
+        <activity android:name=".ScanMenu"/>
+
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
             android:value="ocr" />
