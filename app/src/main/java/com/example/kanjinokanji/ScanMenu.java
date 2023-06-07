@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class ScanMenu extends AppCompatActivity{
 
@@ -21,23 +23,25 @@ public class ScanMenu extends AppCompatActivity{
             @Override
             public void onClick(View view) {
 
-                String uploadReminderMessage = "When uploading an image, please crop it as much" +
-                        " as you can.";
-
                 AlertDialog.Builder builder = new AlertDialog.Builder(ScanMenu.this);
-                builder.setTitle("Upload Reminder");
-                builder.setMessage(uploadReminderMessage);
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                builder.setTitle("Image Cropping Reminder");
 
-                    }
-                });
+                // adding text and images via custom XML!
+                LayoutInflater inflater = ScanMenu.this.getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.dialog, null);
+                builder.setView(dialogView);
 
                 builder.setNegativeButton("NVM then", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
+
+                    }
+                });
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
 
                     }
                 });
