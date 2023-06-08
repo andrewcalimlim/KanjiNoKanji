@@ -31,7 +31,7 @@ public class ScanMenu extends AppCompatActivity{
                 View dialogView = inflater.inflate(R.layout.dialog, null);
                 builder.setView(dialogView);
 
-                builder.setNegativeButton("NVM then", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Hold Up", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
