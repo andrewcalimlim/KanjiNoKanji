@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#039BE5"
         android:fontFamily="@font/righteous"
-        android:text="Proceed"
+        android:text="Scan"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/white"
