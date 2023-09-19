@@ -104,7 +104,14 @@ public class ScanMenu extends AppCompatActivity{
             }
         });
 
-        Button
+        Button analyzeButton = (Button) findViewById(R.id.scan_analyzeButton);
+        analyzeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
 
 
 

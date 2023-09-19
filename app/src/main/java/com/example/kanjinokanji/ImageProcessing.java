@@ -77,8 +77,8 @@ public class ImageProcessing {
     }
     */
 
-    // Google ML-Kit Text Recognition method basically
-    static void imageProcess(Context context, String fileName) {
+    // old method for pulling from Android Studio file, old debug method
+    static void imageProcess_fn(Context context, String fileName) {
         // basically following this tutorial
         // https://developers.google.com/ml-kit/vision/text-recognition/v2/android
 
@@ -90,6 +90,48 @@ public class ImageProcessing {
             Uri test_uri = Uri.parse("android.resource://com.example.kanjinokanji/" +
                     getDrawableFromString(fileName));
             image = InputImage.fromFilePath(context, test_uri);
+            Task<Text> result = recognizer.process(image).addOnSuccessListener(
+                    new OnSuccessListener<Text>() {
+                        @Override
+                        public void onSuccess(Text text) {
+                            String process_result = text.getText();
+                            Log.d("PROCESS RESULT", process_result);
+
+                            try {
+                                //Log.d("RESULT", "begin");
+                                String[] search_result = SearchRemy.searchRemy(process_result);
+                                if(search_result[0] == null){
+                                    Log.d("SEARCH RESULT", "null");
+
+                                }
+                                else{
+                                    Log.d("SEARCH RESULT", search_result[0]);
+                                }
+
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                                Log.d("SEARCH RESULT", "ERROR");
+                            }
+
+                        }
+                    });
+        } catch (IOException e) { //Exceptions gotta catch em all
+            e.printStackTrace();
+        }
+    }
+
+
+    // Google ML-Kit Text Recognition method basically
+    static void imageProcess(Context context, Uri the_uri) {
+        // basically following this tutorial
+        // https://developers.google.com/ml-kit/vision/text-recognition/v2/android
+
+        TextRecognizer recognizer =
+                TextRecognition.getClient(new JapaneseTextRecognizerOptions.Builder().build());
+
+        InputImage image;
+        try {
+            image = InputImage.fromFilePath(context, the_uri);
             Task<Text> result = recognizer.process(image).addOnSuccessListener(
                     new OnSuccessListener<Text>() {
                         @Override
