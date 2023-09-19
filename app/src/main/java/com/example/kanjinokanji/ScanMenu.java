@@ -27,7 +27,7 @@ public class ScanMenu extends AppCompatActivity{
 
         // this is how u edit xml attributes programmatically yo!!! remember?
 
-        Button proceedButton = (Button) findViewById(R.id.scan_proceedButton);
+        Button proceedButton = (Button) findViewById(R.id.scan_analyzeButton);
 
         // Scan Menu's proceed button is disabled and semi-transparent because no
         // image has been uploaded yet
@@ -103,6 +103,8 @@ public class ScanMenu extends AppCompatActivity{
 
             }
         });
+
+        Button
 
 
 

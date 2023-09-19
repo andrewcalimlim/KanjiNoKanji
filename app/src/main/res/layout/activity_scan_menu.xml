@@ -45,12 +45,12 @@
         app:layout_constraintTop_toBottomOf="@+id/scan_selectedImage" />
 
     <Button
-        android:id="@+id/scan_proceedButton"
+        android:id="@+id/scan_analyzeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#039BE5"
         android:fontFamily="@font/righteous"
-        android:text="Scan"
+        android:text="Analyze"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/white"
