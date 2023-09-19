@@ -7,4 +7,13 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="Theme.KanjiNoKanji.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.KanjiNoKanji.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.KanjiNoKanji.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

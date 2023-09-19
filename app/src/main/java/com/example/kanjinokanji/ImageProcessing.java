@@ -27,7 +27,7 @@ import com.example.kanjinokanji.SearchRemy;
 public class ImageProcessing {
 
     // Google ML-Kit Text Recognition method basically
-    static void imageProcess(Context context, Uri the_uri) {
+    static String imageProcess(Context context, Uri the_uri) {
         // basically following this tutorial
         // https://developers.google.com/ml-kit/vision/text-recognition/v2/android
 
@@ -62,10 +62,13 @@ public class ImageProcessing {
 
                         }
                     });
+            return result.toString();
+
         } catch (IOException e) { //Exceptions gotta catch em all
             e.printStackTrace();
+            return "";
         }
-    }
+    };
     /***
      *
      * Never mind sanitization, just give the user the ability to manually edit it
