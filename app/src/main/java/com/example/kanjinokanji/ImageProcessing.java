@@ -27,7 +27,7 @@ import com.example.kanjinokanji.SearchRemy;
 public class ImageProcessing {
 
     // Google ML-Kit Text Recognition method basically
-    static String imageProcess(Context context, Uri the_uri) {
+    static String imageProcess_old(Context context, Uri the_uri) {
         // basically following this tutorial
         // https://developers.google.com/ml-kit/vision/text-recognition/v2/android
 
@@ -69,6 +69,35 @@ public class ImageProcessing {
             return "";
         }
     };
+
+    // Google ML-Kit Text Recognition method basically
+    static String imageProcess(Context context, Uri the_uri) {
+        // basically following this tutorial
+        // https://developers.google.com/ml-kit/vision/text-recognition/v2/android
+
+        TextRecognizer recognizer =
+                TextRecognition.getClient(new JapaneseTextRecognizerOptions.Builder().build());
+
+        InputImage image;
+        try {
+            image = InputImage.fromFilePath(context, the_uri);
+            Task<Text> result = recognizer.process(image).addOnSuccessListener(
+                    new OnSuccessListener<Text>() {
+                        @Override
+                        public void onSuccess(Text text) {
+                            String process_result = text.getText();
+                            Log.d("PROCESS RESULT", process_result);
+                        }
+                    });
+            return result.toString();
+
+        } catch (IOException e) { //Exceptions gotta catch em all
+            e.printStackTrace();
+            return "";
+        }
+    };
+
+
     /***
      *
      * Never mind sanitization, just give the user the ability to manually edit it

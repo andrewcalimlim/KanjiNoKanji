@@ -119,6 +119,8 @@ public class ScanMenu extends AppCompatActivity{
                 startActivity(new Intent(getApplicationContext(), AnalyzeMenu.class));
                 //current issue of trying to pass the current uri
                 // new uri needs to be verified
+                // nvm it was just that imageProcessing had a god function that was doing remywiki
+                // searches pre-emptively cause I forgot about avoiding god function
                 // unlikely that its correctly being recreated
                 // then pass it to AnalyzeMenu
 
