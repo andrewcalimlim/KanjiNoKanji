@@ -116,23 +116,17 @@ public class ScanMenu extends AppCompatActivity{
             public void onClick(View view) {
                 Uri theUri = Uri.parse(uri_string.toString());
                 String result = ImageProcessing.imageProcess(getApplicationContext(), theUri);
-                startActivity(new Intent(getApplicationContext(), AnalyzeMenu.class));
-                //current issue of trying to pass the current uri
-                // new uri needs to be verified
-                // nvm it was just that imageProcessing had a god function that was doing remywiki
-                // searches pre-emptively cause I forgot about avoiding god function
-                // unlikely that its correctly being recreated
+                Intent analyzeIntent = new Intent(getApplicationContext(), AnalyzeMenu.class);
+                analyzeIntent.putExtra("image_uri", uri_string.toString());
+                analyzeIntent.putExtra("result", result);
+                startActivity(analyzeIntent);
+
+                // look up how to pass data to an activity (uri and string)
+                // with intents!
                 // then pass it to AnalyzeMenu
 
             }
         });
-
-
-
-
-
-
-
 
     }
 }
