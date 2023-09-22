@@ -40,6 +40,8 @@ public class AnalyzeMenu extends AppCompatActivity{
         EditText editableTitle = (EditText)  findViewById(R.id.analyze_result);
         editableTitle.setText(result);
 
+        // TODO: fix formatting of text on this screen to a proper height
+
 
 
 

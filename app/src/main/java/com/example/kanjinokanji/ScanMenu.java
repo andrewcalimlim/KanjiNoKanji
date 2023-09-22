@@ -10,6 +10,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.mlkit.vision.text.Text;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class ScanMenu extends AppCompatActivity{
@@ -115,15 +123,40 @@ public class ScanMenu extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 Uri theUri = Uri.parse(uri_string.toString());
-                String result = ImageProcessing.imageProcess(getApplicationContext(), theUri);
-                Intent analyzeIntent = new Intent(getApplicationContext(), AnalyzeMenu.class);
-                analyzeIntent.putExtra("image_uri", uri_string.toString());
-                analyzeIntent.putExtra("result", result);
-                startActivity(analyzeIntent);
 
-                // look up how to pass data to an activity (uri and string)
-                // with intents!
-                // then pass it to AnalyzeMenu
+                //async task? idk
+                // start activity of loading screen?
+                /*
+                ExecutorService executor = Executors.newSingleThreadExecutor();
+                Handler handler = new Handler(Looper.getMainLooper());
+                StringBuilder result = new StringBuilder("");
+
+                executor.execute(() -> {
+                        result.append(ImageProcessing.imageProcess(getApplicationContext(), theUri));
+                        handler.post(() -> {
+                            Intent analyzeIntent = new Intent(getApplicationContext(), AnalyzeMenu.class);
+                            analyzeIntent.putExtra("image_uri", uri_string.toString());
+                            analyzeIntent.putExtra("result", result.toString());
+                            startActivity(analyzeIntent);
+                        });
+                });
+
+                */
+
+                ImageProcessing.imageProcess(getApplicationContext(), theUri).addOnSuccessListener(new OnSuccessListener<Text>() {
+                    @Override
+                    public void onSuccess(Text result) {
+                        Intent analyzeIntent = new Intent(getApplicationContext(), AnalyzeMenu.class);
+                        analyzeIntent.putExtra("image_uri", uri_string.toString());
+                        analyzeIntent.putExtra("result", result.getText());
+                        Log.d("SLATT", result.getText());
+                        startActivity(analyzeIntent);
+
+                    }
+                });
+
+                // TODO: loading screen to show that app is not freezing
+                // TODO: also an OnFailure notification in case Google OCR not working
 
             }
         });

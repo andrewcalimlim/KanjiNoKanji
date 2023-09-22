@@ -71,7 +71,7 @@ public class ImageProcessing {
     };
 
     // Google ML-Kit Text Recognition method basically
-    static String imageProcess(Context context, Uri the_uri) {
+    static String imageProcess_text(Context context, Uri the_uri) {
         // basically following this tutorial
         // https://developers.google.com/ml-kit/vision/text-recognition/v2/android
 
@@ -96,6 +96,28 @@ public class ImageProcessing {
             return "";
         }
     };
+
+    static Task<Text> imageProcess(Context context, Uri the_uri) {
+        // basically following this tutorial
+        // https://developers.google.com/ml-kit/vision/text-recognition/v2/android
+
+        TextRecognizer recognizer =
+                TextRecognition.getClient(new JapaneseTextRecognizerOptions.Builder().build());
+
+        InputImage image;
+        try {
+            image = InputImage.fromFilePath(context, the_uri);
+            Task<Text> result = recognizer.process(image);
+            return result;
+        } catch (IOException e) { //Exceptions gotta catch em all
+            e.printStackTrace();
+            return null;
+        }
+    };
+
+
+
+
 
 
     /***
