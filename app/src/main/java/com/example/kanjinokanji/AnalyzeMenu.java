@@ -44,6 +44,9 @@ public class AnalyzeMenu extends AppCompatActivity{
         selectedImageView.setImageURI(theUri);
 
         EditText editableTitle = (EditText)  findViewById(R.id.analyze_result);
+
+        // TODO: Refactor this amazing resizing method i did by hand into another method
+
         editableTitle.setText(result);
         // sizes of text are max 70 sp
 
@@ -97,7 +100,7 @@ public class AnalyzeMenu extends AppCompatActivity{
         showAnalyzeMenuExplanation(AnalyzeMenu.this);
 
     }
-
+    // TODO: Add XML button that reopens this dialog below
     public void showAnalyzeMenuExplanation(Context c){
         AlertDialog.Builder builder = new AlertDialog.Builder(c);
         builder.setTitle("Verify the scanned text");
@@ -110,4 +113,7 @@ public class AnalyzeMenu extends AppCompatActivity{
         dialog.show();
 
     }
+
+    // TODO: Search button functionality aka call SearchRemy
+    // TODO: RemyWiki search results screen!
 }
