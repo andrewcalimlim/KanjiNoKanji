@@ -94,12 +94,20 @@ public class AnalyzeMenu extends AppCompatActivity{
             editableTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizes.get(curText.length()));
         }
 
+        showAnalyzeMenuExplanation(AnalyzeMenu.this);
+
     }
 
     public void showAnalyzeMenuExplanation(Context c){
         AlertDialog.Builder builder = new AlertDialog.Builder(c);
         builder.setTitle("Verify the scanned text");
-
+        // adding text and images via custom XML!
+        LayoutInflater inflater = AnalyzeMenu.this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.analyze_menu_dialog, null);
+        builder.setView(dialogView);
+        builder.setNeutralButton("OK",null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
     }
 }

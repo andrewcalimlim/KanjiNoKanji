@@ -79,25 +79,17 @@
         android:textColor="@color/design_default_color_error"
         android:textSize="12sp" />
 
-    <ImageView
-        android:id="@+id/analyzeMenuTipPic3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        app:srcCompat="@drawable/analyze_menu_tip_pic_3" />
-
     <TextView
-        android:id="@+id/analyzeMenuTipCaption3"
+        android:id="@+id/analyzeMenuTipText4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:text="Removing these characters instead would also be valid technically. It is recommended to submit the largest subset of the song title however."
+        android:text="Removing the non-highlighted characters instead would also be valid technically. It is recommended to submit the largest subset of the song title however."
         android:textAlignment="viewStart"
-        android:textColor="@color/design_default_color_error"
-        android:textSize="12sp" />
+        android:textColor="@color/black"
+        android:textSize="15sp" />
 
     <ImageView
         android:id="@+id/analyzeMenuTipPic4"
@@ -112,7 +104,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:text="This subset of the image's text is valid and ready for submission."
         android:textAlignment="viewStart"
