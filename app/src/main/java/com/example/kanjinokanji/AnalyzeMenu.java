@@ -27,39 +27,6 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class AnalyzeMenu extends AppCompatActivity{
 
-    public boolean isTextTooLarge(TextView tv){
-        TextPaint paint = tv.getPaint();
-        Rect rect = new Rect();
-        String text = String.valueOf(tv.getText());
-        paint.getTextBounds(text, 0, text.length(), rect);
-        if(rect.height() > tv.getHeight() || rect.width() > tv.getWidth()){
-            return true;
-        }
-        return false;
-    }
-
-    public static boolean isTextTruncated( String text, TextView textView )
-    {
-        if ( textView != null && text != null )
-        {
-
-            Layout layout = textView.getLayout();
-            if ( layout != null )
-            {
-                int lines = layout.getLineCount();
-                if ( lines > 0 )
-                {
-                    int ellipsisCount = layout.getEllipsisCount( lines - 1 );
-                    if ( ellipsisCount > 0 )
-                    {
-                        return true;
-                    }
-                }
-            }
-
-        }
-        return false;
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
