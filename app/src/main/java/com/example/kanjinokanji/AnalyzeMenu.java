@@ -6,6 +6,7 @@ import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Rect;
@@ -92,6 +93,13 @@ public class AnalyzeMenu extends AppCompatActivity{
         else{
             editableTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizes.get(curText.length()));
         }
+
+    }
+
+    public void showAnalyzeMenuExplanation(Context c){
+        AlertDialog.Builder builder = new AlertDialog.Builder(c);
+        builder.setTitle("Verify the scanned text");
+
 
     }
 }

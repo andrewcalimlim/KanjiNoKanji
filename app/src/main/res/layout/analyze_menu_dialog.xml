@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/analyzeMenuTipText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:text="Before RemyWiki can be searched a text verification of the scanned text needs to be done."
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/analyzeMenuTipText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:text="Please inspect the scanned text and remove any Japanese characters in the scanned text that don't appear in the image."
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/analyzeMenuTipPic1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:srcCompat="@drawable/analyze_menu_tip_pic_1" />
+
+    <TextView
+        android:id="@+id/analyzeMenuTipCaption1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="These characters do not appear in the original image and need to be deleted."
+        android:textAlignment="viewStart"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/analyzeMenuTipText3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:text="Remove any other characters if needed to retain an accurate subset of a song title for submission."
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/analyzeMenuTipPic2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:srcCompat="@drawable/analyze_menu_tip_pic_2" />
+
+    <TextView
+        android:id="@+id/analyzeMenuTipCaption2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="These characters are accurate but they break the order of the scanned text and need to be deleted."
+        android:textAlignment="viewStart"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/analyzeMenuTipPic3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:srcCompat="@drawable/analyze_menu_tip_pic_3" />
+
+    <TextView
+        android:id="@+id/analyzeMenuTipCaption3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:text="Removing these characters instead would also be valid technically. It is recommended to submit the largest subset of the song title however."
+        android:textAlignment="viewStart"
+        android:textColor="@color/design_default_color_error"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/analyzeMenuTipPic4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:srcCompat="@drawable/analyze_menu_tip_pic_4" />
+
+    <TextView
+        android:id="@+id/analyzeMenuTipCaption4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:text="This subset of the image's text is valid and ready for submission."
+        android:textAlignment="viewStart"
+        android:textColor="#43A047"
+        android:textSize="12sp" />
+
+
+</LinearLayout>
