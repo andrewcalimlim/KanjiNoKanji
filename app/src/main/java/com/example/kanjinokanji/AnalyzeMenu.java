@@ -30,6 +30,7 @@ public class AnalyzeMenu extends AppCompatActivity{
         setContentView(R.layout.activity_analyze_menu);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
         builder.setTitle("Text Verification Tutorial");
 
         // adding text and images via custom XML!
@@ -63,6 +64,8 @@ public class AnalyzeMenu extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 theVF.showPrevious();
+
+
             }
         });
 
@@ -87,8 +90,6 @@ public class AnalyzeMenu extends AppCompatActivity{
         // TODO: Refactor this amazing resizing method i did by hand into another method
 
         // TODO: fix comments
-
-        //TODO: add page counter to dialog title (1/4)
 
         editableTitle.setText(result);
         // sizes of text are max 70 sp
@@ -148,5 +149,6 @@ public class AnalyzeMenu extends AppCompatActivity{
     public void showAnalyzeMenuExplanation(Context c){}
 
     // TODO: Search button functionality aka call SearchRemy
+
     // TODO: RemyWiki search results screen!
 }

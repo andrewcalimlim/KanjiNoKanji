@@ -62,7 +62,20 @@
                 android:text="These characters do not appear in the original image and should be deleted."
                 android:textAlignment="viewStart"
                 android:textColor="@color/design_default_color_error"
-                android:textSize="12sp" />
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/analyzeMenuPage1Indicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:text="Page 1 / 4" />
+
 
         </LinearLayout>
 
@@ -102,7 +115,19 @@
                 android:text="These characters do appear in the image but after removing the previous character they now break the order of the scanned text and need to be deleted."
                 android:textAlignment="viewStart"
                 android:textColor="@color/design_default_color_error"
-                android:textSize="12sp" />
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/analyzeMenuPage2Indicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:text="Page 2 / 4" />
 
         </LinearLayout>
 
@@ -143,8 +168,19 @@
                 android:text="Technically these characters break the order of the text and could be removed instead."
                 android:textAlignment="viewStart"
                 android:textColor="@color/design_default_color_error"
-                android:textSize="12sp" />
+                android:textSize="15sp" />
 
+            <TextView
+                android:id="@+id/analyzeMenuPage3Indicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:text="Page 3 / 4" />
         </LinearLayout>
 
 
@@ -183,7 +219,19 @@
                 android:text="This is a valid subset of the song title and ready for submission."
                 android:textAlignment="viewStart"
                 android:textColor="#43A047"
-                android:textSize="12sp" />
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@id/analyzeMenuPage4Indicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:text="Page 4 / 4" />
 
         </LinearLayout>
 
