@@ -1,114 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/theLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/analyzeMenuTipText1"
+    <ViewFlipper
+        android:id="@+id/analyzeMenuDialogViewFlipper"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:text="Before RemyWiki can be searched a text verification of the scanned text needs to be done."
-        android:textAlignment="viewStart"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/analyzeMenuTipText2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:text="Please inspect the scanned text and remove any Japanese characters in the scanned text that don't appear in the image."
-        android:textAlignment="viewStart"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
+        <!-- The views on this level are the ones that get flipped -->
 
-    <ImageView
-        android:id="@+id/analyzeMenuTipPic1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        app:srcCompat="@drawable/analyze_menu_tip_pic_1" />
+        <!-- Page 1: Explaining Analyze menu purpose and primary character removal reason-->
 
-    <TextView
-        android:id="@+id/analyzeMenuTipCaption1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="These characters do not appear in the original image and need to be deleted."
-        android:textAlignment="viewStart"
-        android:textColor="@color/design_default_color_error"
-        android:textSize="12sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/analyzeMenuTipText3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:text="Remove any other characters if needed to retain an accurate subset of a song title for submission."
-        android:textAlignment="viewStart"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
+            <TextView
+                android:id="@+id/analyzeMenuTipText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:text="A text verification of the scanned text needs to be done by hand before RemyWiki can be searched."
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
-    <ImageView
-        android:id="@+id/analyzeMenuTipPic2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        app:srcCompat="@drawable/analyze_menu_tip_pic_2" />
+            <TextView
+                android:id="@+id/analyzeMenuTipText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:text="Please inspect the scanned text and remove any Japanese characters from the text that don't appear in the image."
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
-    <TextView
-        android:id="@+id/analyzeMenuTipCaption2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="These characters are accurate but they break the order of the scanned text and need to be deleted."
-        android:textAlignment="viewStart"
-        android:textColor="@color/design_default_color_error"
-        android:textSize="12sp" />
+            <ImageView
+                android:id="@+id/analyzeMenuTipPic1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@drawable/analyze_menu_tip_pic_1" />
 
-    <TextView
-        android:id="@+id/analyzeMenuTipText4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:text="Removing the non-highlighted characters instead would also be valid technically. It is recommended to submit the largest subset of the song title however."
-        android:textAlignment="viewStart"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
+            <TextView
+                android:id="@+id/analyzeMenuTipCaption1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="These characters do not appear in the original image and should be deleted."
+                android:textAlignment="viewStart"
+                android:textColor="@color/design_default_color_error"
+                android:textSize="12sp" />
 
-    <ImageView
-        android:id="@+id/analyzeMenuTipPic4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        app:srcCompat="@drawable/analyze_menu_tip_pic_4" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/analyzeMenuTipCaption4"
+        <!-- Page 2: Explaining secondary character removal reason-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/analyzeMenuTipText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:text="Remove any other characters if needed to retain an accurate subset of a song title for submission."
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/analyzeMenuTipPic2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@drawable/analyze_menu_tip_pic_2" />
+
+            <TextView
+                android:id="@+id/analyzeMenuTipCaption2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="These characters do appear in the image but after removing the previous character they now break the order of the scanned text and need to be deleted."
+                android:textAlignment="viewStart"
+                android:textColor="@color/design_default_color_error"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
+        <!-- Page 3: Explaining secondary character removal ambiguity-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/analyzeMenuTipText4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:text="Note that removing the non-highlighted characters instead would also be valid technically. However, it is recommended to submit the largest subset of the song title."
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/analyzeMenuTipPic5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@drawable/analyze_menu_tip_pic_4" />
+
+            <TextView
+                android:id="@+id/analyzeMenuTipCaption4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Technically these characters break the order of the text and could be removed instead."
+                android:textAlignment="viewStart"
+                android:textColor="@color/design_default_color_error"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
+        <!-- Page 4: Explaining validity-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/analyzeMenuTipText5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:text="When every character in the text in order appears in the image somewhere, it can be considered a valid subset of the title and be ready for submission. \n\nNote that the full song title in text is also a valid subset. "
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/analyzeMenuTipPic6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@drawable/analyze_menu_tip_pic_5" />
+
+            <TextView
+                android:id="@+id/analyzeMenuTipCaption5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="This is a valid subset of the song title and ready for submission."
+                android:textAlignment="viewStart"
+                android:textColor="#43A047"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </ViewFlipper>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="This subset of the image's text is valid and ready for submission."
-        android:textAlignment="viewStart"
-        android:textColor="#43A047"
-        android:textSize="12sp" />
+        android:layout_height="match_parent"
+        android:id="@id/constraintLayout"
+        tools:context=".AnalyzeMenu">
+
+
+        <Button
+            android:id="@+id/analyzeMenuDialogPrevButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#3949AB"
+            android:fontFamily="@font/righteous"
+            android:text="Prev"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:iconTint="@color/material_dynamic_tertiary40"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/analyzeMenuDialogNextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="#039BE5"
+            android:fontFamily="@font/righteous"
+            android:text="Next"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:iconTint="@color/material_dynamic_tertiary40"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>

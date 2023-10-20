@@ -1,30 +1,25 @@
 package com.example.kanjinokanji;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.PickVisualMediaRequest;
-import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Rect;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.Layout;
-import android.text.TextPaint;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
-
-import java.util.concurrent.atomic.AtomicReference;
+import android.widget.LinearLayout;
+import android.widget.ViewFlipper;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 public class AnalyzeMenu extends AppCompatActivity{
 
@@ -32,10 +27,54 @@ public class AnalyzeMenu extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_analyze_menu);
 
-        // grabbing data sent from scan menu
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Text Verification Tutorial");
+
+        // adding text and images via custom XML!
+        LayoutInflater inflater = AnalyzeMenu.this.getLayoutInflater();
+
+        // lmaooooo the issue was that u can't find a view in the layout until its actually in the layout
+        // and u forgot that the dialog is a separate xml file
+        View dialogView = inflater.inflate(R.layout.analyze_menu_dialog, null);
+        ViewFlipper theVF = (ViewFlipper) dialogView.findViewById(R.id.analyzeMenuDialogViewFlipper);
+
+        builder.setView(dialogView);
+
+        Animation in = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
+        Animation out = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);
+
+        theVF.setInAnimation(in);
+        theVF.setOutAnimation(out);
+
+
+        // in order to locate the subviews within a dialog, the actual dialog view (that is inflated with the xml file)
+        // needs to be referred to
+        // otherwise its just trying to search the activity layout
+        // which is why everything is coming fuccing NULL
+        ConstraintLayout cl = (ConstraintLayout) dialogView.findViewById(R.id.constraintLayout);
+
+        Button prevButton = (Button) cl.findViewById(R.id.analyzeMenuDialogPrevButton);
+        Button nextButton = (Button) cl.findViewById(R.id.analyzeMenuDialogNextButton);
+
+
+        prevButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                theVF.showPrevious();
+            }
+        });
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                theVF.showNext();
+            }
+        });
+
+        //showAnalyzeMenuExplanation(AnalyzeMenu.this);
+
         Bundle bundle = getIntent().getExtras();
         Uri theUri =  Uri.parse(bundle.getString("image_uri"));
         String result = bundle.getString("result");
@@ -46,6 +85,10 @@ public class AnalyzeMenu extends AppCompatActivity{
         EditText editableTitle = (EditText)  findViewById(R.id.analyze_result);
 
         // TODO: Refactor this amazing resizing method i did by hand into another method
+
+        // TODO: fix comments
+
+        //TODO: add page counter to dialog title (1/4)
 
         editableTitle.setText(result);
         // sizes of text are max 70 sp
@@ -97,22 +140,12 @@ public class AnalyzeMenu extends AppCompatActivity{
             editableTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizes.get(curText.length()));
         }
 
-        showAnalyzeMenuExplanation(AnalyzeMenu.this);
-
-    }
-    // TODO: Add XML button that reopens this dialog below
-    public void showAnalyzeMenuExplanation(Context c){
-        AlertDialog.Builder builder = new AlertDialog.Builder(c);
-        builder.setTitle("Verify the scanned text");
-        // adding text and images via custom XML!
-        LayoutInflater inflater = AnalyzeMenu.this.getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.analyze_menu_dialog, null);
-        builder.setView(dialogView);
-        builder.setNeutralButton("OK",null);
         AlertDialog dialog = builder.create();
         dialog.show();
 
     }
+    // TODO: Add XML button that reopens this dialog below
+    public void showAnalyzeMenuExplanation(Context c){}
 
     // TODO: Search button functionality aka call SearchRemy
     // TODO: RemyWiki search results screen!
