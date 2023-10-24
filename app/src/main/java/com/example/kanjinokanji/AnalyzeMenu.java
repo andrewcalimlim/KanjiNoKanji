@@ -31,8 +31,6 @@ public class AnalyzeMenu extends AppCompatActivity{
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-
-
         builder.setTitle("Text Verification Tutorial");
 
         // adding text and images via custom XML!
@@ -57,12 +55,16 @@ public class AnalyzeMenu extends AppCompatActivity{
         // which is why everything is coming fuccing NULL
         ConstraintLayout cl = (ConstraintLayout) dialogView.findViewById(R.id.constraintLayout);
 
+        // can't be called before all the other layouts are added
+        AlertDialog dialog = builder.create();
+
+        // Dialog buttons (they appear first in the process of using KJK so it makes sense
+        // to programatically design them first
         Button prevButton = (Button) cl.findViewById(R.id.analyzeMenuDialogPrevButton);
         Button nextButton = (Button) cl.findViewById(R.id.analyzeMenuDialogNextButton);
         Button okButton = (Button) cl.findViewById(R.id.analyzeMenuDialogOKButton);
 
-        AlertDialog dialog = builder.create();
-
+        // Menu buttons
         Button tutorialButton = (Button) findViewById(R.id.analyzeMenuTutorialButton);
 
         tutorialButton.setOnClickListener(new View.OnClickListener() {
