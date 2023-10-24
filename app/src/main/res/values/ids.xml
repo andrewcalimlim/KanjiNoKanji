@@ -5,4 +5,5 @@
     <item name="constraintLayout" type="id" />
     <item name="analyzeMenuPage4Indicator" type="id" />
     <item name="analyzeMenuDialogOKButton" type="id" />
+    <item name="analyzeMenuSearchButton" type="id" />
 </resources>

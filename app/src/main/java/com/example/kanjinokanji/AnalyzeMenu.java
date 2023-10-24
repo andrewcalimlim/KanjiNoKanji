@@ -32,6 +32,7 @@ public class AnalyzeMenu extends AppCompatActivity{
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
 
+
         builder.setTitle("Text Verification Tutorial");
 
         // adding text and images via custom XML!
@@ -60,8 +61,17 @@ public class AnalyzeMenu extends AppCompatActivity{
         Button nextButton = (Button) cl.findViewById(R.id.analyzeMenuDialogNextButton);
         Button okButton = (Button) cl.findViewById(R.id.analyzeMenuDialogOKButton);
 
-
         AlertDialog dialog = builder.create();
+
+        Button tutorialButton = (Button) findViewById(R.id.analyzeMenuTutorialButton);
+
+        tutorialButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.show();
+
+            }
+        });
 
         prevButton.setOnClickListener(new View.OnClickListener() {
             @Override
