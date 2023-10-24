@@ -31,6 +31,7 @@ public class AnalyzeMenu extends AppCompatActivity{
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
+
         builder.setTitle("Text Verification Tutorial");
 
         // adding text and images via custom XML!
@@ -49,7 +50,6 @@ public class AnalyzeMenu extends AppCompatActivity{
         theVF.setInAnimation(in);
         theVF.setOutAnimation(out);
 
-
         // in order to locate the subviews within a dialog, the actual dialog view (that is inflated with the xml file)
         // needs to be referred to
         // otherwise its just trying to search the activity layout
@@ -58,14 +58,15 @@ public class AnalyzeMenu extends AppCompatActivity{
 
         Button prevButton = (Button) cl.findViewById(R.id.analyzeMenuDialogPrevButton);
         Button nextButton = (Button) cl.findViewById(R.id.analyzeMenuDialogNextButton);
+        Button okButton = (Button) cl.findViewById(R.id.analyzeMenuDialogOKButton);
 
+
+        AlertDialog dialog = builder.create();
 
         prevButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 theVF.showPrevious();
-
-
             }
         });
 
@@ -76,7 +77,12 @@ public class AnalyzeMenu extends AppCompatActivity{
             }
         });
 
-        //showAnalyzeMenuExplanation(AnalyzeMenu.this);
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
 
         Bundle bundle = getIntent().getExtras();
         Uri theUri =  Uri.parse(bundle.getString("image_uri"));
@@ -141,7 +147,7 @@ public class AnalyzeMenu extends AppCompatActivity{
             editableTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizes.get(curText.length()));
         }
 
-        AlertDialog dialog = builder.create();
+        //AlertDialog dialog = builder.create();
         dialog.show();
 
     }

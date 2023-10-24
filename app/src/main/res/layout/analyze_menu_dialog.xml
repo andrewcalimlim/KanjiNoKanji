@@ -261,6 +261,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
+        <Button
+            android:id="@id/analyzeMenuDialogOKButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#689F38"
+            android:fontFamily="@font/righteous"
+            android:text="OK"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:iconTint="@color/material_dynamic_tertiary40"
+            app:layout_constraintEnd_toStartOf="@+id/analyzeMenuDialogNextButton"
+            app:layout_constraintStart_toEndOf="@+id/analyzeMenuDialogPrevButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/analyzeMenuDialogNextButton"
             android:layout_width="wrap_content"
