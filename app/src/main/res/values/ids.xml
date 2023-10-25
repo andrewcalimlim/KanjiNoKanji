@@ -8,4 +8,8 @@
     <item name="analyzeMenuSearchButton" type="id" />
     <item name="searchResultTitle" type="id" />
     <item name="searchResultResult" type="id" />
+    <item name="analyzeMenuEditText" type="id" />
+    <item name="analyzeMenuImage" type="id" />
+    <item name="analyzeMenuTitle" type="id" />
+    <item name="analyzeMenuEditableTitle" type="id" />
 </resources>

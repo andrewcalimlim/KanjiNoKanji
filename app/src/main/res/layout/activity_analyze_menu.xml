@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/analyze_menuTitle"
+        android:id="@id/analyzeMenuTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -30,11 +30,11 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/white"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/analyze_menuTitle"
-        app:layout_constraintTop_toTopOf="@+id/analyze_menuTitle" />
+        app:layout_constraintStart_toEndOf="@id/analyzeMenuTitle"
+        app:layout_constraintTop_toTopOf="@id/analyzeMenuTitle" />
 
     <ImageView
-        android:id="@+id/analyze_image"
+        android:id="@id/analyzeMenuImage"
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:layout_marginStart="20dp"
@@ -42,11 +42,11 @@
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/analyze_menuTitle"
+        app:layout_constraintTop_toBottomOf="@id/analyzeMenuTitle"
         app:srcCompat="?attr/actionModePasteDrawable" />
 
     <EditText
-        android:id="@+id/analyze_result"
+        android:id="@id/analyzeMenuEditableTitle"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="20dp"
@@ -56,7 +56,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/analyze_image"
+        app:layout_constraintTop_toBottomOf="@id/analyzeMenuImage"
         tools:ignore="SpeakableTextPresentCheck" />
 <!--           android:textSize="23sp" -->
 <!--    app:autoSizeTextType="uniform"-->
@@ -79,6 +79,6 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/analyze_result" />
+        app:layout_constraintTop_toBottomOf="@id/analyzeMenuEditableTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
