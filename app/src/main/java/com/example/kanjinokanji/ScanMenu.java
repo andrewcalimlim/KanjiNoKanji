@@ -106,9 +106,6 @@ public class ScanMenu extends AppCompatActivity{
                         // https://developer.android.com/reference/kotlin/androidx/activity/result/contract/ActivityResultContracts.PickVisualMedia
                         // investigate media types
 
-
-
-
                 }
                 });
 

@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -66,12 +67,20 @@ public class AnalyzeMenu extends AppCompatActivity{
 
         // Menu buttons
         Button tutorialButton = (Button) findViewById(R.id.analyzeMenuTutorialButton);
+        Button searchButton = (Button) findViewById(R.id.analyzeMenuSearchButton);
 
         tutorialButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.show();
 
+            }
+        });
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), SearchResult.class));
             }
         });
 

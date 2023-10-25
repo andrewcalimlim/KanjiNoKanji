@@ -6,4 +6,6 @@
     <item name="analyzeMenuPage4Indicator" type="id" />
     <item name="analyzeMenuDialogOKButton" type="id" />
     <item name="analyzeMenuSearchButton" type="id" />
+    <item name="searchResultTitle" type="id" />
+    <item name="searchResultResult" type="id" />
 </resources>
