@@ -69,6 +69,7 @@ public class AnalyzeMenu extends AppCompatActivity{
         Button tutorialButton = (Button) findViewById(R.id.analyzeMenuTutorialButton);
         Button searchButton = (Button) findViewById(R.id.analyzeMenuSearchButton);
 
+        EditText editableTitle = (EditText)  findViewById(R.id.analyzeMenuEditableTitle);
         //EditText theText = (EditText) findViewById(R.id.analyzeMenuEditText);
 
         tutorialButton.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +83,10 @@ public class AnalyzeMenu extends AppCompatActivity{
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), SearchResult.class));
+                Intent scanIntent = new Intent(getApplicationContext(), SearchResult.class);
+                String curText = editableTitle.getText().toString();
+                scanIntent.putExtra("verified_text", curText);
+                startActivity(scanIntent);
             }
         });
 
@@ -114,7 +118,7 @@ public class AnalyzeMenu extends AppCompatActivity{
         ImageView selectedImageView = (ImageView)  findViewById(R.id.analyzeMenuImage);
         selectedImageView.setImageURI(theUri);
 
-        EditText editableTitle = (EditText)  findViewById(R.id.analyzeMenuEditableTitle);
+
 
         // TODO: Refactor this amazing resizing method i did by hand into another method
 
