@@ -21,20 +21,24 @@ import java.util.Scanner;
 
 
 public class SearchRemy extends Thread {
+
+    /* INSTANCE VARIABLES */
     String kanji;
     String[] results = {null, null};
+
+    /* CONSTRUCTOR */
     SearchRemy(String kanji){
         this.kanji = kanji;
     }
+    /* THREAD TYPE BEAT */
 
-    //public static String[] searchRemy(String kanji) throws Exception{
     public void run(){
-        //System.out.println("Input: " + kanji);
 
         try{
+
             String api_call =
-                    "https://remywiki.com/api.php?action=query&format=json&prop=&titles=" + kanji
-                            + "&redirects";
+                    "https://remywiki.com/api.php?action=query&list=search&srsearch=" + kanji
+                            + "&format=json";
 
             // https://stackoverflow.com/questions/22235903/wikipedia-search-api-get-redirect-pageid
             // oh dope you can bypass redirects and just get the pageid for the final page
@@ -55,25 +59,31 @@ public class SearchRemy extends Thread {
 
                 ObjectMapper objectMapper = new ObjectMapper();
                 JsonNode rootNode = objectMapper.readTree(response);
-                JsonNode penultimateNode = rootNode.path("query").path("pages");
+                int total_hits = rootNode.path("query").path("searchinfo").findValue("totalhits").asInt();
 
+                //Log.d("BRUH", "total_hits = " + Integer.toString(total_hits));
 
-                // proudly figured this out by staring at the JsonNode official documentation
-                // for like 2 minutes
-                // anyways let's just arbitrarily choose the first result for now
-                // since its unlikely more than 1 result will ever appear
+                if(total_hits > 0){
 
-                String someNumber = penultimateNode.fieldNames().next();
+                    // proudly figured this out by staring at the JsonNode official documentation
+                    // for like 2 minutes
+                    // anyways let's just arbitrarily choose the first result for now
+                    // since its unlikely more than 1 result will ever appear
 
-                if(!someNumber.equals("-1")){
+                    // several months later....
+                    // and now my inattentiveness has bitten me in thee ass...essment of what to
+                    // do next as I have spent the past hour learning how JSONNode / JSON Array Node
+                    // objects work, but it's not terrible
 
-                    JsonNode finalNode = penultimateNode.path(someNumber);
+                    // however now this MediaWiki API search can do partial matches now
+
+                    JsonNode firstMatch = rootNode.path("query").findValue("search").get(0);
 
                     // https://stackoverflow.com/questions/17862418/
                     // how-to-get-a-value-from-a-json-string-using-jackson-library
 
-                    String resultID = finalNode.get("pageid").asText();
-                    String resultTitle = finalNode.get("title").asText();
+                    String resultID = firstMatch.findValue("pageid").asText();
+                    String resultTitle = firstMatch.findValue("title").asText();
                     String resultPage = "https://remywiki.com/?curid=" + resultID;
 
                     results[0] = resultTitle;

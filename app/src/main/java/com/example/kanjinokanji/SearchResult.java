@@ -39,8 +39,6 @@ public class SearchResult extends AppCompatActivity {
 
 
         try {
-            //Task<String[]> results = SearchRemy.searchRemy(verifiedText);
-            //String[] results = SearchRemy.searchRemy(verifiedText);
             //THREADS BABY
             SearchRemy sr = new SearchRemy(verifiedText);
             sr.start(); //basically creates da thread instance (as an object)
@@ -59,17 +57,10 @@ public class SearchResult extends AppCompatActivity {
                 searchResultResult.setText("No valid song on RemyWiki found for " + verifiedText + ".");
             }
 
-
         } catch (Exception e) {
             e.printStackTrace();
             Log.e("BRUH?", "ERROR OCCURRED", e);
         }
-
-
-        //Button
-
-
-
 
     }
 }
