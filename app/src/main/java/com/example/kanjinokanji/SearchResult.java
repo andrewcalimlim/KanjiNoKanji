@@ -55,7 +55,7 @@ public class SearchResult extends AppCompatActivity {
 
             if(resultPage != null){
                 searchResultResult.setText(resultPage);
-                Log.d("BRUH?", resultTitle);
+                //Log.d("BRUH?", resultTitle);
             }
             else{
 

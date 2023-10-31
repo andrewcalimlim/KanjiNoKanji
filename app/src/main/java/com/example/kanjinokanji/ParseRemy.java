@@ -9,6 +9,10 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
 
 // Written by Andrew Calimlim
 
@@ -33,7 +37,7 @@ public class ParseRemy extends Thread {
                     "https://remywiki.com/api.php?action=parse&pageid=" + pageid
                             + "&format=json";
 
-            Log.d("BRUH", api_call);
+            //Log.d("BRUH", api_call);
 
             URLConnection connection = new URL(api_call).openConnection();
             // converting web URL to JSON string
@@ -51,10 +55,36 @@ public class ParseRemy extends Thread {
                 JsonNode rootNode = objectMapper.readTree(response);
 
                 String jp_title = rootNode.path("parse").findValue("sections").get(0).findValue("line").asText();
-                //String html_text = rootNode.path("parse").findValue("text").findValue("*").asText();
 
-                Log.d("BRUH", "da title is " + jp_title);
+                // the following are additional information about the remywiki page that I am
+                // scraping off of the HTML code via regular expressions since RemyWiki doesn't
+                // organize their data any further than song title and page id
+
+                // shoutouts to simpleflips
+
+
+                String html_text = rootNode.path("parse").findValue("text").findValue("*").asText();
+                //Log.d("BRUH", "html text is as follows: \n" + html_text);
+
+
+                String artist_regex = "(?<=Artist: )(.*)(?=<br)";
+                Pattern artist_pattern = Pattern.compile(artist_regex, Pattern.MULTILINE);
+                Matcher artist_matcher = artist_pattern.matcher(html_text);
+                boolean artist_matchFound = artist_matcher.find();
+                if(artist_matchFound){
+                    Log.d("BRUH", "Artist regex found!");
+                    String artist = artist_matcher.group(1);
+                    Log.d("BRUH", "da artist is " + artist);
+
+                } else{
+                    Log.d("BRUH", "Artist regex not found!");
+                }
+
+                //String artist = matcher.group(1);
+
+
                 //Log.d("BRUH", "da title is " + jp_title);
+                //Log.d("BRUH", "da artist is " + artist);
 
                 /*
 
