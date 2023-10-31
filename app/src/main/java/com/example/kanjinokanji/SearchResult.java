@@ -12,6 +12,8 @@ import com.google.android.gms.tasks.Task;
 
 public class SearchResult extends AppCompatActivity {
 
+    // TODO: actually implement all the data u've scraped off of RemyWiki onto the Search Result screen!
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
 
