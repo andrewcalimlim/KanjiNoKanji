@@ -46,6 +46,11 @@ public class SearchResult extends AppCompatActivity {
             String[] results = sr.getResults();
             String resultTitle = results[0];
             String resultPage = results[1];
+            String resultID = results[2];
+            ParseRemy pr = new ParseRemy(resultID);
+            pr.start();
+            pr.join();
+
 
 
             if(resultPage != null){

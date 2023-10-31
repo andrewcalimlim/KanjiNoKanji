@@ -24,7 +24,7 @@ public class SearchRemy extends Thread {
 
     /* INSTANCE VARIABLES */
     String kanji;
-    String[] results = {null, null};
+    String[] results = {null, null, null};
 
     /* CONSTRUCTOR */
     SearchRemy(String kanji){
@@ -88,6 +88,7 @@ public class SearchRemy extends Thread {
 
                     results[0] = resultTitle;
                     results[1] = resultPage;
+                    results[2] = resultID;
                 }
 
             }
