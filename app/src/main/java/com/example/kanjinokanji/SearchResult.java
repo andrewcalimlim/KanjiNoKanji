@@ -25,13 +25,17 @@ public class SearchResult extends AppCompatActivity {
 
         Log.d("SLATT", verifiedText);
 
-        // TODO: resolve network issue, consider thread usage
         // https://developer.android.com/reference/java/lang/Thread
 
         // no, Tasks will not resolve android.os.NetworkOnMainThreadException
         // basically this occurs because trying to do network functionality in the main
         // thread of ur program will cause it to freeze and look slow
         // because that totally matters for ur personal project that like 5 people will use but ok
+
+        // introducing.....THREADS
+        // basically reworked searchRemy class (the remywiki searching functionality) to become
+        // a thread object aka KanjiNoKanji is now technically a multi-threaded application
+        // :OkayChamp: :thumbsup:
 
 
         try {
