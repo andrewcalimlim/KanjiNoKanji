@@ -105,29 +105,6 @@ public class SearchRemy extends Thread {
     }
     public static void main(String[] args) throws Exception{
 
-        // needs to process punctuation into full-width punctuation too btw
-        /*
-        String[] kanji_test = {"〆", "草", "最小三倍完全数", "鬼言集", "回レ！雪月花" };
-        for(int i = 0; i < kanji_test.length; i++){
-            String curKanji = kanji_test[i];
-            String[] results = searchRemy(curKanji);
-            String romanized = results[0];
-            String link = results[1];
-
-            System.out.println("Input: " + curKanji);
-            if(romanized == null || link == null){
-                System.out.println("Remywiki search failed. " +
-                        "No page with this/these kanji found.");
-            }
-            else{
-                System.out.println("Romanized Title: " + romanized);
-                System.out.println("RemyWiki link: " + link);
-            }
-
-            System.out.println("===");
-        }
-       */
-
 
     }
 }

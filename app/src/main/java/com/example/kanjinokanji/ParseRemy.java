@@ -55,7 +55,7 @@ public class ParseRemy extends Thread {
                 JsonNode rootNode = objectMapper.readTree(response);
 
                 String jp_title = rootNode.path("parse").findValue("sections").get(0).findValue("line").asText();
-                Log.d("BRUH", "da jp title is " + jp_title);
+                //Log.d("BRUH", "da jp title is " + jp_title);
 
                 // the following are additional information about the remywiki page that I am
                 // scraping off of the HTML code via regular expressions since RemyWiki doesn't
@@ -79,7 +79,7 @@ public class ParseRemy extends Thread {
                 Matcher artist_matcher = artist_pattern.matcher(html_text);
                 artist_matcher.find();
                 String artist = artist_matcher.group(1);
-                Log.d("BRUH", "da artist is " + artist);
+                //Log.d("BRUH", "da artist is " + artist);
 
                 // regex matching for thee BPM
                 // cause I will prob use this to look up kanji ah ddr songs
@@ -91,38 +91,10 @@ public class ParseRemy extends Thread {
                 bpm_matcher.find();
                 String bpm = bpm_matcher.group(1);
 
-                Log.d("BRUH", "da bpm is " + bpm);
+                //Log.d("BRUH", "da bpm is " + bpm);
 
-
-                /*
-                boolean artist_matchFound = artist_matcher.find();
-                if(artist_matchFound){
-                    Log.d("BRUH", "Artist regex found!");
-                    String artist = artist_matcher.group(1);
-                    Log.d("BRUH", "da artist is " + artist);
-
-                } else{
-                    Log.d("BRUH", "Artist regex not found!");
-                }
-                */
-
-                //String artist = matcher.group(1);
-
-
-                //Log.d("BRUH", "da title is " + jp_title);
-                //Log.d("BRUH", "da artist is " + artist);
-
-                /*
-
-                String resultID = firstMatch.findValue("pageid").asText();
-                String resultTitle = firstMatch.findValue("title").asText();
-                String resultPage = "https://remywiki.com/?curid=" + resultID;
-
-                results[0] = resultTitle;
-                results[1] = resultPage;
-
-                 */
-
+                results[0] = artist;
+                results[1] = bpm;
 
             }
 

@@ -99,12 +99,19 @@ public class AnalyzeMenu extends AppCompatActivity{
                     ParseRemy pr = new ParseRemy(resultID);
                     pr.start();
                     pr.join();
-                    Log.d("BRUH?", "da result title is " + resultTitle);
-                    Log.d("BRUH?", "da result page is " + resultPage);
-                    Log.d("BRUH?", "da result ID is " + resultID);
+                    String[] more_results = pr.getResults();
+                    String resultArtist = more_results[0];
+                    String resultBPM = more_results[1];
+
+                    //Log.d("BRUH?", "da result title is " + resultTitle);
+                    //Log.d("BRUH?", "da result page is " + resultPage);
+                    //Log.d("BRUH?", "da result ID is " + resultID);
                     scanIntent.putExtra("result_title", resultTitle);
                     scanIntent.putExtra("result_page", resultPage);
                     scanIntent.putExtra("result_ID", resultID);
+                    scanIntent.putExtra("result_artist", resultArtist);
+                    scanIntent.putExtra("result_BPM", resultBPM);
+
                     startActivity(scanIntent);
                 } catch (Exception e){
                     e.printStackTrace();
