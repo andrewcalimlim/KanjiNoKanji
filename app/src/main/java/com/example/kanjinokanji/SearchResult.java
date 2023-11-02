@@ -23,9 +23,23 @@ public class SearchResult extends AppCompatActivity {
         EditText searchResultResult = findViewById(R.id.searchResultResult);
 
         Bundle bundle = getIntent().getExtras();
-        String verifiedText = bundle.getString("verified_text");
+        String resultTitle = bundle.getString("result_title");
+        String resultPage = bundle.getString("result_page");
+        String resultID = bundle.getString("result_ID");
 
-        Log.d("SLATT", verifiedText);
+        if(resultPage != null){
+            searchResultResult.setText(resultPage);
+            //Log.d("BRUH?", resultTitle);
+        }
+        else{
+
+            searchResultResult.setText("No valid song on RemyWiki found for this text.");
+        }
+
+
+        //String verifiedText = bundle.getString("verified_text");
+
+        //Log.d("SLATT", verifiedText);
 
         // https://developer.android.com/reference/java/lang/Thread
 
@@ -39,7 +53,7 @@ public class SearchResult extends AppCompatActivity {
         // a thread object aka KanjiNoKanji is now technically a multi-threaded application
         // :OkayChamp: :thumbsup:
 
-
+        /*
         try {
             //THREADS BABY
             SearchRemy sr = new SearchRemy(verifiedText);
@@ -67,6 +81,8 @@ public class SearchResult extends AppCompatActivity {
             e.printStackTrace();
             Log.e("BRUH?", "ERROR OCCURRED", e);
         }
+
+         */
 
     }
 }

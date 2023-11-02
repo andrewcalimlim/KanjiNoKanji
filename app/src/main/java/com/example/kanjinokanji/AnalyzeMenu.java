@@ -85,8 +85,32 @@ public class AnalyzeMenu extends AppCompatActivity{
             public void onClick(View view) {
                 Intent scanIntent = new Intent(getApplicationContext(), SearchResult.class);
                 String curText = editableTitle.getText().toString();
-                scanIntent.putExtra("verified_text", curText);
-                startActivity(scanIntent);
+                //scanIntent.putExtra("verified_text", curText);
+
+                //THREADS BABY
+                try{
+                    SearchRemy sr = new SearchRemy(curText);
+                    sr.start(); //basically creates da thread instance (as an object)
+                    sr.join(); // basically makes program wait forever til it the thread dies
+                    String[] results = sr.getResults();
+                    String resultTitle = results[0];
+                    String resultPage = results[1];
+                    String resultID = results[2];
+                    ParseRemy pr = new ParseRemy(resultID);
+                    pr.start();
+                    pr.join();
+                    Log.d("BRUH?", "da result title is " + resultTitle);
+                    Log.d("BRUH?", "da result page is " + resultPage);
+                    Log.d("BRUH?", "da result ID is " + resultID);
+                    scanIntent.putExtra("result_title", resultTitle);
+                    scanIntent.putExtra("result_page", resultPage);
+                    scanIntent.putExtra("result_ID", resultID);
+                    startActivity(scanIntent);
+                } catch (Exception e){
+                    e.printStackTrace();
+                    Log.e("BRUH?", "ERROR OCCURRED", e);
+                }
+
             }
         });
 
