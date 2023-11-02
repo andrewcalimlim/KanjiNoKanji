@@ -174,14 +174,11 @@ public class AnalyzeMenu extends AppCompatActivity{
             editableTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, sizes.get(curText.length()));
         }
 
-        //AlertDialog dialog = builder.create();
         dialog.show();
 
     }
-    // TODO: Add XML button that reopens this dialog below
+
     public void showAnalyzeMenuExplanation(Context c){}
 
-    // TODO: Search button functionality aka call SearchRemy
 
-    // TODO: RemyWiki search results screen!
 }
