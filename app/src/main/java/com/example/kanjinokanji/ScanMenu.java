@@ -10,8 +10,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,17 +18,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.mlkit.vision.text.Text;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class ScanMenu extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //TODO: change buttons to image cropping reminder (XML)
+        //TODO: diagnose error when upload button is used more than once
+        //TODO: loading screens lol
+
+        //TODO: actual good UI layout lol
+        //TODO: refactor functionality? idk
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_menu);
@@ -41,7 +41,7 @@ public class ScanMenu extends AppCompatActivity{
 
         Button proceedButton = (Button) findViewById(R.id.scan_analyzeButton);
 
-        // Scan Menu's proceed button is disabled and semi-transparent because no
+        // Scan Menu's proceed button is disabled and semi-transparent on startup because no
         // image has been uploaded yet
         proceedButton.setEnabled(false);
         proceedButton.setAlpha(.5f);
@@ -97,14 +97,10 @@ public class ScanMenu extends AppCompatActivity{
 
                         //https://developer.android.com/training/data-storage/shared/photopicker
 
-                        // use this tutorial
-
                         pickMedia.launch(new PickVisualMediaRequest.Builder()
                                 .setMediaType(PickVisualMedia.ImageOnly.INSTANCE)
                                 .build());
 
-                        // https://developer.android.com/reference/kotlin/androidx/activity/result/contract/ActivityResultContracts.PickVisualMedia
-                        // investigate media types
 
                 }
                 });
@@ -123,22 +119,6 @@ public class ScanMenu extends AppCompatActivity{
 
                 //async task? idk
                 // start activity of loading screen?
-                /*
-                ExecutorService executor = Executors.newSingleThreadExecutor();
-                Handler handler = new Handler(Looper.getMainLooper());
-                StringBuilder result = new StringBuilder("");
-
-                executor.execute(() -> {
-                        result.append(ImageProcessing.imageProcess(getApplicationContext(), theUri));
-                        handler.post(() -> {
-                            Intent analyzeIntent = new Intent(getApplicationContext(), AnalyzeMenu.class);
-                            analyzeIntent.putExtra("image_uri", uri_string.toString());
-                            analyzeIntent.putExtra("result", result.toString());
-                            startActivity(analyzeIntent);
-                        });
-                });
-
-                */
 
                 ImageProcessing.imageProcess(getApplicationContext(), theUri).addOnSuccessListener(new OnSuccessListener<Text>() {
                     @Override

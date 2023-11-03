@@ -20,8 +20,7 @@ import org.w3c.dom.Text;
 
 public class SearchResult extends AppCompatActivity {
 
-    // TODO: actually implement all the data u've scraped off of RemyWiki onto the Search Result screen!
-
+    // so link works i guess
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState){
