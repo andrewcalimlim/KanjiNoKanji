@@ -1,20 +1,28 @@
 package com.example.kanjinokanji;
 
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.Task;
+
+import org.w3c.dom.Text;
 
 public class SearchResult extends AppCompatActivity {
 
     // TODO: actually implement all the data u've scraped off of RemyWiki onto the Search Result screen!
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState){
 
@@ -29,30 +37,40 @@ public class SearchResult extends AppCompatActivity {
         String resultID = bundle.getString("result_ID");
         String resultArtist = bundle.getString("result_artist");
         String resultBPM = bundle.getString("result_BPM");
+        String resultJPTitle = bundle.getString("result_JPTitle");
         String imageURI_string = bundle.getString("image_URI");
         Log.d("BRUH?", "image uri string: " + imageURI_string);
 
+        //setting layout programatically
+
+        //first thee uploaded image to remind user of their input
         ImageView selectedImageView = (ImageView) findViewById(R.id.searchResult_uploadedImage);
         Uri imageURI = Uri.parse(imageURI_string);
         selectedImageView.setImageURI(imageURI);
 
+        TextView jpTitle = (TextView) findViewById(R.id.searchResult_JPTitle);
+        jpTitle.setText(resultJPTitle);
 
+        TextView songTitle = (TextView) findViewById(R.id.searchResult_titleData);
+        songTitle.setText(resultTitle);
 
-        Log.d("BRUH", "result artist: " + resultArtist);
-        Log.d("BRUH", "result BPM: " + resultBPM);
+        TextView artistName = (TextView) findViewById(R.id.searchResult_artistData);
+        artistName.setText(resultArtist);
 
+        TextView bpmData = (TextView) findViewById(R.id.searchResult_BPMData);
+        bpmData.setText(resultBPM);
 
-        /*
-        if(resultPage != null){
-            searchResultResult.setText(resultPage);
-            //Log.d("BRUH?", resultTitle);
-        }
-        else{
+        // https://stackoverflow.com/questions/9290651/make-a-hyperlink-textview-in-android
+        TextView rw_link = (TextView) findViewById(R.id.searchResult_link);
+        rw_link.setClickable(true);
+        rw_link.setMovementMethod(LinkMovementMethod.getInstance());
+        String code = "<a href='" + resultPage + "'> RemyWiki Page for more information </a>";
+        //Log.d("BRUH?", code);
+        rw_link.setText(Html.fromHtml(code, Html.FROM_HTML_MODE_COMPACT));
 
-            searchResultResult.setText("No valid song on RemyWiki found for this text.");
-        }
+        //Log.d("BRUH", "result artist: " + resultArtist);
+        //Log.d("BRUH", "result BPM: " + resultBPM);
 
-         */
 
     }
 }

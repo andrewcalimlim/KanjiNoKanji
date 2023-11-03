@@ -23,9 +23,108 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchResultTitle"
         app:srcCompat="?attr/actionModePasteDrawable" />
+
+    <TextView
+        android:id="@+id/searchResult_titleHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/righteous"
+        android:text="Title:"
+        android:textColor="#4A4A4A"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchResult_JPTitle" />
+
+    <TextView
+        android:id="@+id/searchResult_titleData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:fontFamily="@font/righteous"
+        android:text="Song Title"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/searchResult_titleHeader"
+        app:layout_constraintTop_toTopOf="@+id/searchResult_titleHeader" />
+
+    <TextView
+        android:id="@+id/searchResult_artistHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/righteous"
+        android:text="Artist: "
+        android:textColor="#4A4A4A"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/searchResult_titleHeader"
+        app:layout_constraintTop_toBottomOf="@+id/searchResult_titleHeader" />
+
+    <TextView
+        android:id="@+id/searchResult_artistData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/righteous"
+        android:text="Artist Name"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/searchResult_titleData"
+        app:layout_constraintTop_toTopOf="@+id/searchResult_artistHeader" />
+
+    <TextView
+        android:id="@+id/searchResult_JPTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="JP Title"
+        android:fontFamily="@font/righteous"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchResult_uploadedImage" />
+
+    <TextView
+        android:id="@+id/searchResult_BPMHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/righteous"
+        android:text="BPM:"
+        android:textColor="#4A4A4A"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/searchResult_artistHeader"
+        app:layout_constraintTop_toBottomOf="@+id/searchResult_artistHeader" />
+
+    <TextView
+        android:id="@+id/searchResult_BPMData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/righteous"
+        android:text="BPM Data"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/searchResult_artistData"
+        app:layout_constraintTop_toTopOf="@+id/searchResult_BPMHeader" />
+
+    <TextView
+        android:id="@+id/searchResult_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/righteous"
+        android:text="RemyWiki Page"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchResult_BPMData" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,7 @@ public class ParseRemy extends Thread {
 
     /* INSTANCE VARIABLES */
     String pageid;
-    String[] results = {null, null};
+    String[] results = {null, null, null};
 
     /* CONSTRUCTOR */
     ParseRemy(String pageid){
@@ -95,6 +95,7 @@ public class ParseRemy extends Thread {
 
                 results[0] = artist;
                 results[1] = bpm;
+                results[2] = jp_title;
 
             }
 

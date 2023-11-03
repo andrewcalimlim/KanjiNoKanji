@@ -109,6 +109,7 @@ public class AnalyzeMenu extends AppCompatActivity{
                     String[] more_results = pr.getResults();
                     String resultArtist = more_results[0];
                     String resultBPM = more_results[1];
+                    String resultJPTitle = more_results[2];
 
                     //Log.d("BRUH?", "da result title is " + resultTitle);
                     //Log.d("BRUH?", "da result page is " + resultPage);
@@ -118,6 +119,7 @@ public class AnalyzeMenu extends AppCompatActivity{
                     scanIntent.putExtra("result_ID", resultID);
                     scanIntent.putExtra("result_artist", resultArtist);
                     scanIntent.putExtra("result_BPM", resultBPM);
+                    scanIntent.putExtra("result_JPTitle", resultJPTitle);
                     scanIntent.putExtra("image_URI", theUri.toString());
 
                     startActivity(scanIntent);
