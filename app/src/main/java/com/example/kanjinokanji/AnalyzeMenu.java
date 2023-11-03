@@ -72,6 +72,13 @@ public class AnalyzeMenu extends AppCompatActivity{
         EditText editableTitle = (EditText)  findViewById(R.id.analyzeMenuEditableTitle);
         //EditText theText = (EditText) findViewById(R.id.analyzeMenuEditText);
 
+        Bundle bundle = getIntent().getExtras();
+        Uri theUri =  Uri.parse(bundle.getString("image_uri"));
+        String result = bundle.getString("result");
+
+        ImageView selectedImageView = (ImageView)  findViewById(R.id.analyzeMenuImage);
+        selectedImageView.setImageURI(theUri);
+
         tutorialButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,6 +118,7 @@ public class AnalyzeMenu extends AppCompatActivity{
                     scanIntent.putExtra("result_ID", resultID);
                     scanIntent.putExtra("result_artist", resultArtist);
                     scanIntent.putExtra("result_BPM", resultBPM);
+                    scanIntent.putExtra("image_URI", theUri.toString());
 
                     startActivity(scanIntent);
                 } catch (Exception e){
@@ -142,12 +150,7 @@ public class AnalyzeMenu extends AppCompatActivity{
             }
         });
 
-        Bundle bundle = getIntent().getExtras();
-        Uri theUri =  Uri.parse(bundle.getString("image_uri"));
-        String result = bundle.getString("result");
 
-        ImageView selectedImageView = (ImageView)  findViewById(R.id.analyzeMenuImage);
-        selectedImageView.setImageURI(theUri);
 
 
 
