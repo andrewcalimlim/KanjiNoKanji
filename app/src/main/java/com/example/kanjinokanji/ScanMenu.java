@@ -4,6 +4,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.PickVisualMediaRequest;
 import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -82,30 +83,40 @@ public class ScanMenu extends AppCompatActivity{
                 LayoutInflater inflater = ScanMenu.this.getLayoutInflater();
                 View dialogView = inflater.inflate(R.layout.dialog_scan_menu, null);
                 builder.setView(dialogView);
+                ConstraintLayout cl = (ConstraintLayout) dialogView.findViewById(R.id.scan_dialog_constraint_layout);
+                AlertDialog dialog = builder.create();
 
-                builder.setNegativeButton("Hold Up", new DialogInterface.OnClickListener() {
+                Button holdUpButton = (Button) cl.findViewById(R.id.scan_dialog_hold_up_button);
+                holdUpButton.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
+                    public void onClick(View view) {
+                        dialog.dismiss();
 
                     }
                 });
 
-                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                Button okButton = (Button) cl.findViewById(R.id.scan_dialog_ok_button);
+                okButton.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                    public void onClick(View view) {
 
+                        // using a new Android photopicker UI that doesn't require a bunch of permissions
                         //https://developer.android.com/training/data-storage/shared/photopicker
+
+                        // which is cool and easy to implement...
+                        // but also buggy as seen by this error that won't go away
+                        // yet it still compiles so whatever
+
+                        dialog.dismiss();
 
                         pickMedia.launch(new PickVisualMediaRequest.Builder()
                                 .setMediaType(PickVisualMedia.ImageOnly.INSTANCE)
                                 .build());
 
 
-                }
+                    }
                 });
 
-                AlertDialog dialog = builder.create();
                 dialog.show();
 
             }

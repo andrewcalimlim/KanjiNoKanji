@@ -59,4 +59,48 @@
         android:textAlignment="center"
         android:textColor="@android:color/holo_green_dark" />
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@id/scan_dialog_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ScanMenu">
+
+
+        <Button
+            android:id="@id/scan_dialog_hold_up_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:backgroundTint="#9E3C3C"
+            android:fontFamily="@font/righteous"
+            android:text="Hold Up"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:iconTint="@color/material_dynamic_tertiary40"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/scan_dialog_ok_button" />
+
+        <Button
+            android:id="@id/scan_dialog_ok_button"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="#28972D"
+            android:fontFamily="@font/righteous"
+            android:text="OK"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:iconTint="@color/material_dynamic_tertiary40"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </LinearLayout>

@@ -12,4 +12,9 @@
     <item name="analyzeMenuImage" type="id" />
     <item name="analyzeMenuTitle" type="id" />
     <item name="analyzeMenuEditableTitle" type="id" />
+    <item name="scanMenuDialogHoldUpButton" type="id" />
+    <item name="scanMenuDialogOKButton" type="id" />
+    <item name="scan_dialog_hold_up_button" type="id" />
+    <item name="scan_dialog_ok_button" type="id" />
+    <item name="scan_dialog_constraint_layout" type="id" />
 </resources>
