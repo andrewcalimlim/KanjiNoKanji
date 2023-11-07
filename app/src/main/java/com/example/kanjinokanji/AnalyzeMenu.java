@@ -3,7 +3,6 @@ package com.example.kanjinokanji;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -13,11 +12,9 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ViewFlipper;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -39,7 +36,7 @@ public class AnalyzeMenu extends AppCompatActivity{
 
         // lmaooooo the issue was that u can't find a view in the layout until its actually in the layout
         // and u forgot that the dialog is a separate xml file
-        View dialogView = inflater.inflate(R.layout.analyze_menu_dialog, null);
+        View dialogView = inflater.inflate(R.layout.dialog_analyze_menu, null);
         ViewFlipper theVF = (ViewFlipper) dialogView.findViewById(R.id.analyzeMenuDialogViewFlipper);
 
         builder.setView(dialogView);

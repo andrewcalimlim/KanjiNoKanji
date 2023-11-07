@@ -27,9 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".TextRecognition"
-            android:exported="false" />
         <activity android:name=".ScanMenu" />
 
         <activity android:name=".SearchResult" />

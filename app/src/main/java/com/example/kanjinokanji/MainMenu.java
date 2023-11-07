@@ -30,15 +30,11 @@ public class MainMenu extends AppCompatActivity { //LMAO IT WAS JUST THE NAME
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //ImageProcessing.imageProcess(this, "romantic");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu); // note this has to be called
         displayScanButton(MainMenu.this); //before grabbing views by ID like here
         // cause the view object hasn't been made yet otherwise
-
-
-
 
 
     }

@@ -1,22 +1,16 @@
 package com.example.kanjinokanji;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.tasks.Task;
-
-import org.w3c.dom.Text;
 
 public class SearchResult extends AppCompatActivity {
 
@@ -27,8 +21,6 @@ public class SearchResult extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
-
-        //EditText searchResultResult = findViewById(R.id.searchResultResult);
 
         Bundle bundle = getIntent().getExtras();
         String resultTitle = bundle.getString("result_title");
@@ -64,11 +56,8 @@ public class SearchResult extends AppCompatActivity {
         rw_link.setClickable(true);
         rw_link.setMovementMethod(LinkMovementMethod.getInstance());
         String code = "<a href='" + resultPage + "'> RemyWiki Page for more information </a>";
-        //Log.d("BRUH?", code);
-        rw_link.setText(Html.fromHtml(code, Html.FROM_HTML_MODE_COMPACT));
 
-        //Log.d("BRUH", "result artist: " + resultArtist);
-        //Log.d("BRUH", "result BPM: " + resultBPM);
+        rw_link.setText(Html.fromHtml(code, Html.FROM_HTML_MODE_COMPACT));
 
 
     }

@@ -1,12 +1,9 @@
 package com.example.kanjinokanji;
 
-import android.os.Handler;
 import android.util.Log;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.TaskCompletionSource;
 
 import java.net.URL;
 import java.net.URLConnection;

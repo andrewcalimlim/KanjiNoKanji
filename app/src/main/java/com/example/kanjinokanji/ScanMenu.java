@@ -80,7 +80,7 @@ public class ScanMenu extends AppCompatActivity{
 
                 // adding text and images via custom XML!
                 LayoutInflater inflater = ScanMenu.this.getLayoutInflater();
-                View dialogView = inflater.inflate(R.layout.dialog, null);
+                View dialogView = inflater.inflate(R.layout.dialog_scan_menu, null);
                 builder.setView(dialogView);
 
                 builder.setNegativeButton("Hold Up", new DialogInterface.OnClickListener() {
