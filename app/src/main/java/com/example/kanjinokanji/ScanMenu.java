@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,12 +25,7 @@ public class ScanMenu extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        //TODO: change buttons to image cropping reminder (XML)
-        //TODO: diagnose error when upload button is used more than once
-        //TODO: loading screens lol
 
-        //TODO: actual good UI layout lol
-        //TODO: refactor functionality? idk
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_menu);

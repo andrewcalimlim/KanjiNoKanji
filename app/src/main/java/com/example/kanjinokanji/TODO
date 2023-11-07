@@ -1,15 +1,25 @@
-FIGURE OUT HOW TO GITIGNORE DIARY LOL
+THE URGENT
+TODO: diagnose error when upload button is used more than once
+TODO: loading screens lol
 
+THE LESS URGENT
+TODO: either in-app cropping or highlighting text?
+TODO: remove text corrections and try searching for every subset of the string
 
+THE STRETCH GOALS
+TODO: actual good UI layout lol
 
+    -design and implement logo
+    -animated background
+    -font change and dialog/button consistent theme/ color palette
+    -possible animation for dialog appearing?
+TODO: refactor functionality? idk
 
+HONESTLY NBD IF U DO IT OR NOT
 
-5.2 design and implement logo
+TODO: design and implement SETTINGS UI
 
+- what settings lol
+-maybe a dark mode?
 
-
---stretch and optional because not important--
-
-5.2 design and implement SETTINGS UI
-
-5.3 design and implement CREDITS UI
+TODO: design and implement CREDITS UI
