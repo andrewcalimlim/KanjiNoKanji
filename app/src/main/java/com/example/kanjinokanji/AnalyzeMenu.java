@@ -51,7 +51,7 @@ public class AnalyzeMenu extends AppCompatActivity{
         // needs to be referred to
         // otherwise its just trying to search the activity layout
         // which is why everything is coming fuccing NULL
-        ConstraintLayout cl = (ConstraintLayout) dialogView.findViewById(R.id.constraintLayout);
+        ConstraintLayout cl = (ConstraintLayout) dialogView.findViewById(R.id.analyze_dialog_constraint_layout);
 
         // can't be called before all the other layouts are added
         AlertDialog dialog = builder.create();

@@ -240,7 +240,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@id/constraintLayout"
+        android:id="@id/analyze_dialog_constraint_layout"
         tools:context=".AnalyzeMenu">
 
 
