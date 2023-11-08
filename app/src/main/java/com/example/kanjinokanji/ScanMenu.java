@@ -117,17 +117,26 @@ public class ScanMenu extends AppCompatActivity{
             }
         });
 
+        // loading screen
+        AlertDialog.Builder pBuilder = new AlertDialog.Builder(ScanMenu.this);
+        LayoutInflater pInflater = ScanMenu.this.getLayoutInflater();
+        View pView = pInflater.inflate(R.layout.dialog_scan_menu_progress, null);
+        pBuilder.setView(pView);
+        AlertDialog pDialog = pBuilder.create();
+        pDialog.setCancelable(false);
+        pDialog.setInverseBackgroundForced(false);
+
         scanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pDialog.show();
                 Uri theUri = Uri.parse(uri_string.toString());
 
-                //async task? idk
-                // start activity of loading screen?
 
                 ImageProcessing.imageProcess(getApplicationContext(), theUri).addOnSuccessListener(new OnSuccessListener<Text>() {
                     @Override
                     public void onSuccess(Text result) {
+                        pDialog.dismiss();
                         Intent analyzeIntent = new Intent(getApplicationContext(), AnalyzeMenu.class);
                         analyzeIntent.putExtra("image_uri", uri_string.toString());
                         analyzeIntent.putExtra("result", result.getText());
@@ -137,7 +146,6 @@ public class ScanMenu extends AppCompatActivity{
                     }
                 });
 
-                // TODO: loading screen to show that app is not freezing
                 // TODO: also an OnFailure notification in case Google OCR not working
 
             }

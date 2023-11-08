@@ -17,4 +17,5 @@
     <item name="scan_dialog_hold_up_button" type="id" />
     <item name="scan_dialog_ok_button" type="id" />
     <item name="scan_dialog_constraint_layout" type="id" />
+    <item name="scan_progress_text" type="id" />
 </resources>
