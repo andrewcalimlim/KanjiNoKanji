@@ -25,24 +25,23 @@ public class ScanMenu extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_menu);
 
         int SELECT_PICTURE = 200;
 
-        // this is how u edit xml attributes programmatically yo!!! remember?
-
-        Button proceedButton = (Button) findViewById(R.id.scan_analyzeButton);
-
-        // Scan Menu's proceed button is disabled and semi-transparent on startup because no
-        // image has been uploaded yet
-        proceedButton.setEnabled(false);
-        proceedButton.setAlpha(.5f);
+        // on start-up the Analyze button is disabled and semi-transparent
+        // because no image has been uploaded yet
+        Button analyzeButton = (Button) findViewById(R.id.scan_analyzeButton);
+        analyzeButton.setEnabled(false);
+        analyzeButton.setAlpha(.5f);
 
         TextView noImageTextView = (TextView) findViewById(R.id.scan_noImageText);
         ImageView selectedImageView = (ImageView) findViewById(R.id.scan_selectedImage);
+
+        // image URI needs to persist so we will make it global to the class
+        // and since it can be updated on this screen several times it should be a mutable
+        // string aka STRING BUILDER TIME!!! :OkayChamp:
         StringBuilder uri_string = new StringBuilder("");
 
         // PhotoPicker activity will be in single-select mode
@@ -55,9 +54,9 @@ public class ScanMenu extends AppCompatActivity{
                         // the scan menu UI (show the image, re-enable proceed button)
                         selectedImageView.setImageURI(selectedImageUri);
                         noImageTextView.setVisibility(View.INVISIBLE);
-                        proceedButton.setEnabled(true);
-                        proceedButton.setAlpha(1f);
-                        uri_string.append(selectedImageUri.toString());
+                        analyzeButton.setEnabled(true);
+                        analyzeButton.setAlpha(1f);
+                        uri_string.append(selectedImageUri.toString()); //updating uri string
 
                     } else {
                         Log.d("PhotoPicker", "No media selected");
@@ -102,6 +101,8 @@ public class ScanMenu extends AppCompatActivity{
                         // yet it still compiles so whatever
 
                         dialog.dismiss();
+                        uri_string.setLength(0); // changing image ui means string will be changed
+                        // so time to clear the uri string
 
                         pickMedia.launch(new PickVisualMediaRequest.Builder()
                                 .setMediaType(PickVisualMedia.ImageOnly.INSTANCE)
@@ -116,7 +117,6 @@ public class ScanMenu extends AppCompatActivity{
             }
         });
 
-        Button analyzeButton = (Button) findViewById(R.id.scan_analyzeButton);
         analyzeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
