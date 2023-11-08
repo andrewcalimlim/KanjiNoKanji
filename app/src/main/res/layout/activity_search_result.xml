@@ -127,4 +127,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchResult_BPMData" />
 
+    <Button
+        android:id="@id/searchResult_HomeButton"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#FF4081"
+        android:fontFamily="@font/righteous"
+        android:text="Home"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:iconTint="@color/material_dynamic_tertiary40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchResult_link" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

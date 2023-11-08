@@ -20,4 +20,5 @@
     <item name="scan_progress_text" type="id" />
     <item name="analyze_progress_header" type="id" />
     <item name="analyze_progress_text" type="id" />
+    <item name="searchResult_HomeButton" type="id" />
 </resources>

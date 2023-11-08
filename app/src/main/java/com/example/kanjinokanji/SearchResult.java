@@ -3,12 +3,15 @@ package com.example.kanjinokanji;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -58,6 +61,16 @@ public class SearchResult extends AppCompatActivity {
         String code = "<a href='" + resultPage + "'> RemyWiki Page for more information </a>";
 
         rw_link.setText(Html.fromHtml(code, Html.FROM_HTML_MODE_COMPACT));
+
+        //cooountry roooads take me hoooome
+        Button homeButton = (Button) findViewById(R.id.searchResult_HomeButton);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(getApplicationContext(), MainMenu.class));
+            }
+        });
 
 
     }
