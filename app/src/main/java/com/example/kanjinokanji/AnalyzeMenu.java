@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -18,6 +20,9 @@ import android.widget.ImageView;
 import android.widget.ViewFlipper;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class AnalyzeMenu extends AppCompatActivity{
 
@@ -84,46 +89,90 @@ public class AnalyzeMenu extends AppCompatActivity{
             }
         });
 
+        // loading screen
+        AlertDialog.Builder pBuilder = new AlertDialog.Builder(AnalyzeMenu.this);
+        LayoutInflater pInflater = AnalyzeMenu.this.getLayoutInflater();
+        View pView = pInflater.inflate(R.layout.dialog_analyze_menu_progress, null);
+        pBuilder.setView(pView);
+        AlertDialog pDialog = pBuilder.create();
+        pDialog.setCancelable(false);
+        pDialog.setInverseBackgroundForced(false);
+        //pDialog.show();
+
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pDialog.show();
+
                 Intent scanIntent = new Intent(getApplicationContext(), SearchResult.class);
                 String curText = editableTitle.getText().toString();
                 //scanIntent.putExtra("verified_text", curText);
 
-                //THREADS BABY
-                try{
-                    SearchRemy sr = new SearchRemy(curText);
-                    sr.start(); //basically creates da thread instance (as an object)
-                    sr.join(); // basically makes program wait forever til it the thread dies
-                    String[] results = sr.getResults();
-                    String resultTitle = results[0];
-                    String resultPage = results[1];
-                    String resultID = results[2];
-                    ParseRemy pr = new ParseRemy(resultID);
-                    pr.start();
-                    pr.join();
-                    String[] more_results = pr.getResults();
-                    String resultArtist = more_results[0];
-                    String resultBPM = more_results[1];
-                    String resultJPTitle = more_results[2];
+                // nvm threads are cool but using join here freezes the main UI
+                // and prevents loading screens from working so we just do it in the background
+                // and update the UI in the meantime
 
-                    //Log.d("BRUH?", "da result title is " + resultTitle);
-                    //Log.d("BRUH?", "da result page is " + resultPage);
-                    //Log.d("BRUH?", "da result ID is " + resultID);
-                    scanIntent.putExtra("result_title", resultTitle);
-                    scanIntent.putExtra("result_page", resultPage);
-                    scanIntent.putExtra("result_ID", resultID);
-                    scanIntent.putExtra("result_artist", resultArtist);
-                    scanIntent.putExtra("result_BPM", resultBPM);
-                    scanIntent.putExtra("result_JPTitle", resultJPTitle);
-                    scanIntent.putExtra("image_URI", theUri.toString());
+                // i....kinda get it i need to look at this more, executors and handlers are
+                // too abstracted away away from android programming for me to fully understand it
+                // but it basically is using asynchronous programming to split UI changes
+                // reliant on results of long-running tasks
 
-                    startActivity(scanIntent);
-                } catch (Exception e){
-                    e.printStackTrace();
-                    Log.e("BRUH?", "ERROR OCCURRED", e);
-                }
+                //asynchronous programming meaning multiple threads are occurring at the same time
+                // so ui updating is happening while the searching is happening in the background
+                // and the program WILL update the UI with the final results because it knows
+                // that the UI is reliant on those final results
+
+                // i think
+
+                // also i was gonna use asynctasks but they're deprecated smhd
+                // https://stackoverflow.com/questions/58767733/the-asynctask-api-is-deprecated-in-android-11-what-are-the-alternatives
+                // so the bottom is basically copy pasta
+
+                ExecutorService executor = Executors.newSingleThreadExecutor();
+                Handler handler = new Handler(Looper.getMainLooper());
+
+                executor.execute(() -> {
+                    // everything else is my work dont get it twisted!
+                    try{
+                        SearchRemy sr = new SearchRemy(curText);
+                        sr.doTheThing(); // remnant of thread class extension, too lazy to change it back
+                        String[] results = sr.getResults();
+                        String resultTitle = results[0];
+                        String resultPage = results[1];
+                        String resultID = results[2];
+                        ParseRemy pr = new ParseRemy(resultID);
+                        pr.doTheThing(); // also, object oriented programming! W O W! he is objEcTin! ! !
+                        String[] more_results = pr.getResults();
+                        String resultArtist = more_results[0];
+                        String resultBPM = more_results[1];
+                        String resultJPTitle = more_results[2];
+
+                        //Log.d("BRUH?", "da result title is " + resultTitle);
+                        //Log.d("BRUH?", "da result page is " + resultPage);
+                        //Log.d("BRUH?", "da result ID is " + resultID);
+                        scanIntent.putExtra("result_title", resultTitle);
+                        scanIntent.putExtra("result_page", resultPage);
+                        scanIntent.putExtra("result_ID", resultID);
+                        scanIntent.putExtra("result_artist", resultArtist);
+                        scanIntent.putExtra("result_BPM", resultBPM);
+                        scanIntent.putExtra("result_JPTitle", resultJPTitle);
+                        scanIntent.putExtra("image_URI", theUri.toString());
+
+                        //startActivity(scanIntent);
+                    } catch (Exception e){
+                        e.printStackTrace();
+                        Log.e("BRUH?", "ERROR OCCURRED", e);
+                    }
+
+                    handler.post(() -> {
+                        //UI Thread work here
+                        pDialog.dismiss();
+                        startActivity(scanIntent);
+                    });
+                });
+
+
+
 
             }
         });

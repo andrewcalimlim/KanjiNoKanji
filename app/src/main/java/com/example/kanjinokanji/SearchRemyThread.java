@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.net.URL;
 import java.net.URLConnection;
-
 import java.util.Scanner;
 
 
@@ -17,19 +16,19 @@ import java.util.Scanner;
 // https://stackoverflow.com/questions/57734823/android-studio-refuses-to-run-main
 
 
-public class SearchRemy{
+public class SearchRemyThread extends Thread {
 
     /* INSTANCE VARIABLES */
     String kanji;
     String[] results = {null, null, null};
 
     /* CONSTRUCTOR */
-    SearchRemy(String kanji){
+    SearchRemyThread(String kanji){
         this.kanji = kanji;
     }
     /* THREAD TYPE BEAT */
 
-    public void doTheThing(){
+    public void run(){
 
         try{
 

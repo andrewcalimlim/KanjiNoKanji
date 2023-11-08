@@ -18,4 +18,6 @@
     <item name="scan_dialog_ok_button" type="id" />
     <item name="scan_dialog_constraint_layout" type="id" />
     <item name="scan_progress_text" type="id" />
+    <item name="analyze_progress_header" type="id" />
+    <item name="analyze_progress_text" type="id" />
 </resources>

@@ -8,7 +8,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,20 +15,20 @@ import java.util.regex.Pattern;
 
 // Written by Andrew Calimlim
 
-public class ParseRemy{
+public class ParseRemyThread extends Thread {
 
     /* INSTANCE VARIABLES */
     String pageid;
     String[] results = {null, null, null};
 
     /* CONSTRUCTOR */
-    ParseRemy(String pageid){
+    ParseRemyThread(String pageid){
         this.pageid = pageid;
     }
 
     /* THREAD TYPE BEAT */
 
-    public void doTheThing(){
+    public void run(){
 
         try{
 
