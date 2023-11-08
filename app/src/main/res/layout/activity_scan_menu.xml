@@ -35,7 +35,7 @@
         android:layout_marginTop="20dp"
         android:backgroundTint="#3949AB"
         android:fontFamily="@font/righteous"
-        android:text="Upload"
+        android:text="Select"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/white"
@@ -45,12 +45,12 @@
         app:layout_constraintTop_toBottomOf="@+id/scan_selectedImage" />
 
     <Button
-        android:id="@+id/scan_analyzeButton"
+        android:id="@+id/scan_scanButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#039BE5"
         android:fontFamily="@font/righteous"
-        android:text="Analyze"
+        android:text="Scan"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/white"

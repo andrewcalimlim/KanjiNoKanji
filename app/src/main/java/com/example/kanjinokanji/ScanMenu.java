@@ -30,11 +30,11 @@ public class ScanMenu extends AppCompatActivity{
 
         int SELECT_PICTURE = 200;
 
-        // on start-up the Analyze button is disabled and semi-transparent
+        // on start-up the Scan button is disabled and semi-transparent
         // because no image has been uploaded yet
-        Button analyzeButton = (Button) findViewById(R.id.scan_analyzeButton);
-        analyzeButton.setEnabled(false);
-        analyzeButton.setAlpha(.5f);
+        Button scanButton = (Button) findViewById(R.id.scan_scanButton);
+        scanButton.setEnabled(false);
+        scanButton.setAlpha(.5f);
 
         TextView noImageTextView = (TextView) findViewById(R.id.scan_noImageText);
         ImageView selectedImageView = (ImageView) findViewById(R.id.scan_selectedImage);
@@ -54,8 +54,8 @@ public class ScanMenu extends AppCompatActivity{
                         // the scan menu UI (show the image, re-enable proceed button)
                         selectedImageView.setImageURI(selectedImageUri);
                         noImageTextView.setVisibility(View.INVISIBLE);
-                        analyzeButton.setEnabled(true);
-                        analyzeButton.setAlpha(1f);
+                        scanButton.setEnabled(true);
+                        scanButton.setAlpha(1f);
                         uri_string.append(selectedImageUri.toString()); //updating uri string
 
                     } else {
@@ -117,7 +117,7 @@ public class ScanMenu extends AppCompatActivity{
             }
         });
 
-        analyzeButton.setOnClickListener(new View.OnClickListener() {
+        scanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Uri theUri = Uri.parse(uri_string.toString());
@@ -131,7 +131,7 @@ public class ScanMenu extends AppCompatActivity{
                         Intent analyzeIntent = new Intent(getApplicationContext(), AnalyzeMenu.class);
                         analyzeIntent.putExtra("image_uri", uri_string.toString());
                         analyzeIntent.putExtra("result", result.getText());
-                        Log.d("SLATT", result.getText());
+                        //Log.d("SLATT", result.getText());
                         startActivity(analyzeIntent);
 
                     }
